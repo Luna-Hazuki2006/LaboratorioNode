@@ -1,14 +1,14 @@
-import PokemonRouter from './components/Pokemon/PokemonRouter.js'
-import PokeusarioRouter from './components/Pokeusario/PokeusuarioRouter.js'
+import AutorRouter from './components/Autor/AutorRouter.js'
+import LibroRouter from './components/Libro/LibroRouter.js'
+import PublicacionRouter from './components/Publicacion/PublicacionRouter.js'
 import SesionRouter from './components/Sesion/SesionRouter.js'
-import UbicacionRouter from './components/Ubicacion/UbicacionRouter.js'
 import UsuarioRouter from './components/Usuario/UsuarioRouter.js'
 
 const router = (app) => {
-    PokemonRouter(app)
-    PokeusarioRouter(app)
+    AutorRouter(app)
+    LibroRouter(app)
     SesionRouter(app)
-    UbicacionRouter(app)
+    PublicacionRouter(app)
     UsuarioRouter(app)
 }
 
