@@ -1,4 +1,4 @@
-import { CategoriaServicio } from "./Service";
+import { CategoriaServicio } from "./Service.js";
 
 class CategoriaControlador {
     Crear(request, response){

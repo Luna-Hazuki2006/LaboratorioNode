@@ -1,4 +1,4 @@
-import {CategoriaControlador} from './Controlador'
+import {CategoriaControlador} from './Controlador.js'
 
 const router = (app) => {
 

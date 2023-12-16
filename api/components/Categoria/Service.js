@@ -1,4 +1,4 @@
-import { Categorias } from "./Modelo"
+import { Categorias } from "./Modelo.js"
 
 class CategoriaServicio {
     async Crear(nombre, descripcion) {
