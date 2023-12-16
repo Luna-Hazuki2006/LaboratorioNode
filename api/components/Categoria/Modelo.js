@@ -1,5 +1,5 @@
-const { DataTypes } = require('sequelize');
-const { sequelize } = require('../../config/coneccion.js');
+import { DataTypes } from 'sequelize'; 
+import { sequelize } from '../../config/coneccion.js';
 
 const Categorias = sequelize.define('Categoria', {
     nombre: {
