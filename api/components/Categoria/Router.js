@@ -6,13 +6,13 @@ const router = (app) => {
 
     app.get('/Categoria', controlador.Listar);
     
-    app.get('/Categoria/:id')
+    app.get('/Categoria/:id', controlador.Consultar)
     
     app.post('/Categoria', controlador.Crear);
     
-    app.put('/Categoria/:id')
+    app.put('/Categoria/:id', controlador.Modificar)
     
-    app.delete('/Categoria/:id')
+    app.delete('/Categoria/:id', controlador.Eliminar)
     
 }
 // 

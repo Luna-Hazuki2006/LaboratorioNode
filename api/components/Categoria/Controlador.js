@@ -22,15 +22,58 @@ class CategoriaControlador {
     }
 
     async Modificar(request, response) {
-
+        try { // esto no es asincrónico :v
+            const servicio = new CategoriaServicio();
+            const {nombre, descripcion} = request.body;
+            const id = request.params.id
+            const categoria = await servicio.Modificar(id, nombre, descripcion);
+            
+            if (categoria) {
+                response.status(200).json({data: categoria});
+            }
+            else{
+                response.status(400).send('no hay datos u otro mensaje');
+            }
+        }
+        catch(error) {
+            response.status(500).send(error)
+        }
     }
 
     async Eliminar(request, response) {
-
+        try { // esto no es asincrónico :v
+            const servicio = new CategoriaServicio();
+            const id = request.params.id
+            const categoria = await servicio.Eliminar(id);
+            
+            if (categoria) {
+                response.status(200).json({data: categoria});
+            }
+            else{
+                response.status(400).send('no hay datos u otro mensaje');
+            }
+        }
+        catch(error) {
+            response.status(500).send(error)
+        }
     }
 
     async Consultar(request, response) {
-
+        try { // esto no es asincrónico :v
+            const servicio = new CategoriaServicio();
+            const id = request.params.id
+            const categoria = await servicio.Eliminar(id);
+            
+            if (categoria) {
+                response.status(200).json({data: categoria});
+            }
+            else{
+                response.status(400).send('no hay datos u otro mensaje');
+            }
+        }
+        catch(error) {
+            response.status(500).send(error)
+        }
     }
 
     async Listar(request, response) {
