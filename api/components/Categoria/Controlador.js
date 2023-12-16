@@ -1,3 +1,4 @@
+import { CategoriaServicio } from "./Service";
 
 class CategoriaControlador {
     Crear(request, response){
