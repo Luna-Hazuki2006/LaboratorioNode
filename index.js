@@ -6,7 +6,7 @@ import { sequelize } from './api/config/coneccion.js';
 
 const app = express();
 // y también le hice los cambios que me dijo de nombres de los archivos
-//
+// ¿¿¿???
 app.use(parser.json())
 
 const routerExpress = express.Router();
