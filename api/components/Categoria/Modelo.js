@@ -14,6 +14,6 @@ const Categorias = sequelize.define('Categoria', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'categorias' });
-
+}, { tableName: 'categoria' });
+// ahora que hago :'v
 export {Categorias}

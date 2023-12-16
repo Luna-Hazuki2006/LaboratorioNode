@@ -32,3 +32,10 @@ sequelize
 .catch((error) => {
     console.error('Connection fail', error);
 });
+
+// .....
+// emmmmmmmmmmmmmmmm
+// aquí viene un pequeño dilema :v
+// esta es una computadora de gracosoft
+// en mi computadora de case fue donde instale
+// ok

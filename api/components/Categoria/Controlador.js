@@ -1,13 +1,15 @@
 import { CategoriaServicio } from "./Service.js";
 
 class CategoriaControlador {
-    Crear(request, response){
-
-        try{
+    async Crear(request, response){
+// entonces :v
+// ¿hicimos categorías falsas?
+        try{ // esto no es asincrónico :v
             const servicio = new CategoriaServicio();
             const {nombre, descripcion} = request.body;
-            const categoria = servicio.Crear(nombre, descripcion);
-            if (autor) {
+            const categoria = await servicio.Crear(nombre, descripcion);
+            
+            if (categoria) {
                 response.status(200).json({data: categoria});
             }
             else{
