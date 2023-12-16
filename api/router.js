@@ -1,5 +1,5 @@
 import AutorRouter from './components/Autor/AutorRouter.js'
-import LibroRouter from './components/Libro/LibroRouter.js'
+import LibroRouter from './components/Libro/Router.js'
 import PublicacionRouter from './components/Publicacion/Router.js'
 import SesionRouter from './components/Sesion/Router.js'
 import UsuarioRouter from './components/Usuario/Router.js'
