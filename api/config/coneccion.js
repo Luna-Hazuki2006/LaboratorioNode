@@ -1,8 +1,8 @@
 const { Sequelize } = require('sequelize');
 
 
-const sequelize = new Sequelize('postgres://gracoapi_user:ZnCbDQBUclZstkJ9fxcpnN1T3NjqWsHm@dpg-cjrq5m5m702s73eo0pmg-a.oregon-postgres.render.com/gracoapi?ssl=true');
-
+const sequelize = new Sequelize('postgres://graco:d16mVIlilx3OFVzXgb0AW5VYnTOv0pMT@dpg-clupqhmg1b2c73cacl4g-a.oregon-postgres.render.com/gracoapidb?ssl=true');
+// :D
 export {
     sequelize
 }
