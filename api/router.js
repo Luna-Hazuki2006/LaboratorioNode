@@ -1,4 +1,4 @@
-import AutorRouter from './components/Autor/AutorRouter.js'
+import AutorRouter from './components/Autor/Router.js'
 import LibroRouter from './components/Libro/Router.js'
 import PublicacionRouter from './components/Publicacion/Router.js'
 import SesionRouter from './components/Sesion/Router.js'
