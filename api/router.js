@@ -1,8 +1,8 @@
 import AutorRouter from './components/Autor/AutorRouter.js'
 import LibroRouter from './components/Libro/LibroRouter.js'
-import PublicacionRouter from './components/Publicacion/PublicacionRouter.js'
-import SesionRouter from './components/Sesion/SesionRouter.js'
-import UsuarioRouter from './components/Usuario/UsuarioRouter.js'
+import PublicacionRouter from './components/Publicacion/Router.js'
+import SesionRouter from './components/Sesion/Router.js'
+import UsuarioRouter from './components/Usuario/Router.js'
 
 const router = (app) => {
     AutorRouter(app)
