@@ -14,7 +14,38 @@ class CategoriaServicio {
     }
 // ok
     async Modificar(id, nombre, descripcion) {
+        try {
+            return await Categorias.update({
+                nombre, 
+                descripcion
+            }, {where: {"id": id}})
+        } catch (error) {
+            throw error
+        }
+    }
 
+    async Eliminar(id) {
+        try {
+            return await Categorias.destroy({where: {"id": id}})
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async Consultar(id) {
+        try {
+            return await Categorias.findOne({where: {"id": id}})
+        } catch (error) {
+            throw error
+        }
+    }
+
+    async Listar(id) {
+        try {
+            return await Categorias.findAll({})
+        } catch (error) {
+            throw error
+        }
     }
 }
 

@@ -4,7 +4,7 @@ const router = (app) => {
 
     let controlador = new CategoriaControlador()
 
-    app.get('/Categoria');
+    app.get('/Categoria', controlador.Listar);
     
     app.get('/Categoria/:id')
     

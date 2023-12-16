@@ -28,6 +28,24 @@ class CategoriaControlador {
     async Eliminar(request, response) {
 
     }
+
+    async Consultar(request, response) {
+
+    }
+
+    async Listar(request, response) {
+        try {
+            const servicio = new CategoriaServicio();
+            const data = await servicio.Listar()
+            if (data) {
+                response.status(200).json({"data": data})
+            } else {
+                response.status(400).send("no hay datos y otro mensaje")
+            }
+        } catch (error) {
+            response.status(500).send(error)
+        }
+    }
 }
 
 export {CategoriaControlador}
