@@ -12,6 +12,10 @@ class CategoriaServicio {
             throw error
         }
     }
+// ok
+    async Modificar(id, nombre, descripcion) {
+
+    }
 }
 
 export {CategoriaServicio}

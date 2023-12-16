@@ -4,7 +4,7 @@ class CategoriaControlador {
     async Crear(request, response){
 // entonces :v
 // ¿hicimos categorías falsas?
-        try{ // esto no es asincrónico :v
+        try { // esto no es asincrónico :v
             const servicio = new CategoriaServicio();
             const {nombre, descripcion} = request.body;
             const categoria = await servicio.Crear(nombre, descripcion);
@@ -16,9 +16,17 @@ class CategoriaControlador {
                 response.status(400).send('no hay datos u otro mensaje');
             }
         }
-        catch(error){
+        catch(error) {
             response.status(500).send(error)
         }
+    }
+
+    async Modificar(request, response) {
+
+    }
+
+    async Eliminar(request, response) {
+
     }
 }
 

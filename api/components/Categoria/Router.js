@@ -15,5 +15,5 @@ const router = (app) => {
     app.delete('/Categoria/:id')
     
 }
-
+// 
 export default router;
