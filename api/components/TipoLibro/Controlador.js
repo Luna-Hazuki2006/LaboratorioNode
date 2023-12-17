@@ -2,7 +2,7 @@ import { TipoLibroServicio } from "./Service.js";
 
 class TipoLibroControlador {
 
-    async Crear(request, response){
+    async Crear(request, response) {
         try { 
             const servicio = new TipoLibroServicio();
             const {nombre, descripcion} = request.body;
