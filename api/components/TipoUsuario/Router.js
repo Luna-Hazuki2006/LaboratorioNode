@@ -1,14 +1,19 @@
+import { validarCuerpo, validarId } from "./Validaciones.js";
+import { TipoUsuarioControlador } from "./Controlador.js";
+
 const router = (app) => {
 
-    app.get('/TipoUsuario');
+    const controlador = new TipoUsuarioControlador()
+
+    app.get('/TipoUsuario', controlador.Listar);
     
-    app.get('/TipoUsuario/:id')
+    app.get('/TipoUsuario/:id', validarId, controlador.Consultar)
     
-    app.post('/TipoUsuario');
+    app.post('/TipoUsuario', validarCuerpo, controlador.Crear);
     
-    app.put('/TipoUsuario/:id')
+    app.put('/TipoUsuario/:id', validarId, validarCuerpo, controlador.Modificar)
     
-    app.delete('/TipoUsuario/:id')
+    app.delete('/TipoUsuario/:id', validarId, controlador.Eliminar)
     
 }
 
