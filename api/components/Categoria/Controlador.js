@@ -29,10 +29,10 @@ class CategoriaControlador {
             const categoria = await servicio.Modificar(id, nombre, descripcion);
             
             if (categoria) {
-                response.status(200).json({data: categoria});
+                response.status(200).json({data: "Se modificó con éxito :D"});
             }
             else{
-                response.status(400).send('no hay datos u otro mensaje');
+                response.status(400).send('Hubo un problema al modificar');
             }
         }
         catch(error) {
@@ -47,7 +47,7 @@ class CategoriaControlador {
             const categoria = await servicio.Eliminar(id);
             
             if (categoria) {
-                response.status(200).json({data: categoria});
+                response.status(200).json({data: "Se eliminó con éxito la categoría"});
             }
             else{
                 response.status(400).send('no hay datos u otro mensaje');
@@ -67,8 +67,8 @@ class CategoriaControlador {
             if (categoria) {
                 response.status(200).json({data: categoria});
             }
-            else{
-                response.status(400).send('no hay datos u otro mensaje');
+            else {
+                response.status(400).send('No se encuentra la categoría');
             }
         }
         catch(error) {
