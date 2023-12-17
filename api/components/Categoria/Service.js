@@ -40,7 +40,7 @@ class CategoriaServicio {
         }
     }
 
-    async Listar(id) {
+    async Listar() {
         try {
             return await Categorias.findAll({})
         } catch (error) {

@@ -12,7 +12,7 @@ class CategoriaControlador {
             if (categoria) {
                 response.status(200).json({data: categoria});
             }
-            else{
+            else {
                 response.status(400).send('no hay datos u otro mensaje');
             }
         }
@@ -31,7 +31,7 @@ class CategoriaControlador {
             if (categoria) {
                 response.status(200).json({data: "Se modificó con éxito :D"});
             }
-            else{
+            else {
                 response.status(400).send('Hubo un problema al modificar');
             }
         }
@@ -49,7 +49,7 @@ class CategoriaControlador {
             if (categoria) {
                 response.status(200).json({data: "Se eliminó con éxito la categoría"});
             }
-            else{
+            else {
                 response.status(400).send('no hay datos u otro mensaje');
             }
         }
