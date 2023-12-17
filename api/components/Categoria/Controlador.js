@@ -62,7 +62,7 @@ class CategoriaControlador {
         try { // esto no es asincrónico :v
             const servicio = new CategoriaServicio();
             const id = request.params.id
-            const categoria = await servicio.Eliminar(id);
+            const categoria = await servicio.Consultar(id);
             
             if (categoria) {
                 response.status(200).json({data: categoria});
