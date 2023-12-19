@@ -1,7 +1,7 @@
 import {CategoriaControlador} from './Controlador.js'
 import { validarCuerpo, validarId } from "./Validaciones.js";
 
-const router = (app) => {
+const CategoriaRouter = (app) => {
 
     let controlador = new CategoriaControlador()
 
@@ -17,4 +17,4 @@ const router = (app) => {
     
 }
 // 
-export default router;
+export default CategoriaRouter;

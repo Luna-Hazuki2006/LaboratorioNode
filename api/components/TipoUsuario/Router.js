@@ -1,7 +1,7 @@
 import { validarCuerpo, validarId } from "./Validaciones.js";
 import { TipoUsuarioControlador } from "./Controlador.js";
 
-const router = (app) => {
+const TipoUsuarioRouter = (app) => {
 
     const controlador = new TipoUsuarioControlador()
 
@@ -17,4 +17,4 @@ const router = (app) => {
     
 }
 
-export default router;
+export default TipoUsuarioRouter;
