@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize'; 
 import { sequelize } from '../../config/coneccion.js';
+import { TipoUsuario } from "../TipoUsuario/Modelo.js";
 
 const Usuario = sequelize.define('Usuario', {
     nombre: {
@@ -26,10 +27,17 @@ const Usuario = sequelize.define('Usuario', {
         type: DataTypes.DATE, 
         allowNull: false
     }, 
+    idTipoUsuario: {
+        type: DataTypes.INTEGER, 
+        allowNull: false
+    }, 
     createdAt: {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'usuario' });
+
+TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
+Usuario.belongsTo(TipoUsuario)
 
 export {Usuario}

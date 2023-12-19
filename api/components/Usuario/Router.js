@@ -1,15 +1,17 @@
-const router = (app) => {
+import { validarCuerpo, validarId } from "./Validaciones.js";
+
+const UsuarioRouter = (app) => {
 
     app.get('/Usuario');
     
-    app.get('/Usuario/:id')
+    app.get('/Usuario/:id', validarId)
     
-    app.post('/Usuario');
+    app.post('/Usuario', validarCuerpo);
     
-    app.put('/Usuario/:id')
+    app.put('/Usuario/:id', validarId, validarCuerpo)
     
-    app.delete('/Usuario/:id')
+    app.delete('/Usuario/:id', validarId)
     
 }
 
-export default router;
+export default UsuarioRouter;
