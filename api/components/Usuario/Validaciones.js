@@ -30,6 +30,12 @@ const validarCuerpo = (request, response, next) => {
     if (!request.body.contraseña) {
         next(new Error("Debe ingresar la contraseña"))
     }
+    if (!request.body.idTipoUsuario) {
+        next(new Error("Debe ingresar la id del tipo de usuario"))
+    }
+    if (isNaN(request.body.idTipoUsuario)) {
+        next(new Error("La id del tipo de usuario debe ser de tipo numérico"))
+    }
     next()
 } 
 
