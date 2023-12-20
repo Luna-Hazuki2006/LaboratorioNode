@@ -34,13 +34,13 @@ class UsuarioServicio {
         }
     }
 
-    async Eliminar(id) {
-        try {
-            return await Usuario.destroy({where: {"id": id}})
-        } catch (error) {
-            throw error
-        }
-    }
+    // async Eliminar(id) {
+    //     try {
+    //         return await Usuario.destroy({where: {"id": id}})
+    //     } catch (error) {
+    //         throw error
+    //     }
+    // }
 
     async Consultar(id) {
         try {

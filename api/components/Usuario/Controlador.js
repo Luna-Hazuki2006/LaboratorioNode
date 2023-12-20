@@ -39,23 +39,23 @@ class UsuarioControlador {
         }
     }
 
-    async Eliminar(request, response) {
-        try { 
-            const servicio = new UsuarioServicio();
-            const id = request.params.id
-            const usuario = await servicio.Eliminar(id);
+    // async Eliminar(request, response) {
+    //     try { 
+    //         const servicio = new UsuarioServicio();
+    //         const id = request.params.id
+    //         const usuario = await servicio.Eliminar(id);
             
-            if (usuario) {
-                response.status(200).json({data: "Se eliminó con éxito el usuario"});
-            }
-            else {
-                response.status(400).send('no hay datos u otro mensaje');
-            }
-        }
-        catch(error) {
-            response.status(500).send(error)
-        }
-    }
+    //         if (usuario) {
+    //             response.status(200).json({data: "Se eliminó con éxito el usuario"});
+    //         }
+    //         else {
+    //             response.status(400).send('no hay datos u otro mensaje');
+    //         }
+    //     }
+    //     catch(error) {
+    //         response.status(500).send(error)
+    //     }
+    // }
 
     async Consultar(request, response) {
         try { 

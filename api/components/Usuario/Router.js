@@ -13,7 +13,7 @@ const UsuarioRouter = (app) => {
     
     app.put('/Usuario/:id', validarId, validarCuerpo, controlador.Modificar)
     
-    app.delete('/Usuario/:id', validarId, controlador.Eliminar)
+    // app.delete('/Usuario/:id', validarId, controlador.Eliminar)
     
 }
 
