@@ -15,8 +15,11 @@ const validarCuerpo = (request, response, next) => {
     if (!request.body.descripcion) {
         next(new Error("Debe ingresar el descripción"))
     }
-    if (!request.body.estatus) {
-        next(new Error("Debe ingresar el estatus"))
+    if (!request.body.idTiposRelaciones) {
+        next(new Error("Debe ingresar la id del tipo de relación"))
+    }
+    if (!request.body.idAutor) {
+        next(new Error("Debe ingresar la id del autor"))
     }
     next()
 } 
