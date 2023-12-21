@@ -1,15 +1,20 @@
-const router = (app) => {
+import { validarCuerpo, validarId } from "./Validaciones.js";
+import { LibroControlador } from "./Controlador.js";
 
-    app.get('/Libro');
+const LibroRouter = (app) => {
+
+    const controlador = new LibroControlador()
+
+    app.get('/Libro', controlador.Listar);
     
-    app.get('/Libro/:id')
+    app.get('/Libro/:id', validarId, controlador.Consultar)
     
-    app.post('/Libro');
+    app.post('/Libro', validarCuerpo, controlador.Crear);
     
-    app.put('/Libro/:id')
+    app.put('/Libro/:id', validarId, validarCuerpo, controlador.Modificar)
     
-    app.delete('/Libro/:id')
+    app.delete('/Libro/:id', validarId, controlador.Eliminar)
     
 }
 
-export default router;
+export default LibroRouter;

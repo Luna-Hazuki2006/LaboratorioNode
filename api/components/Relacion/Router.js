@@ -5,15 +5,15 @@ const RelacionesRouter = (app) => {
 
     const controlador = new RelacionesControlador()
 
-    app.get('/TiposRelaciones', controlador.Listar);
+    app.get('/Relaciones', controlador.Listar);
     
-    app.get('/TiposRelaciones/:id', validarId, controlador.Consultar)
+    app.get('/Relaciones/:id', validarId, controlador.Consultar)
     
-    app.post('/TiposRelaciones', validarCuerpo, controlador.Crear);
+    app.post('/Relaciones', validarCuerpo, controlador.Crear);
     
-    app.put('/TiposRelaciones/:id', validarId, validarCuerpo, controlador.Modificar)
+    app.put('/Relaciones/:id', validarId, validarCuerpo, controlador.Modificar)
     
-    app.delete('/TiposRelaciones/:id', validarId, controlador.Eliminar)
+    app.delete('/Relaciones/:id', validarId, controlador.Eliminar)
     
 }
 

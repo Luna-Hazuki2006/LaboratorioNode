@@ -26,10 +26,10 @@ const Relaciones = sequelize.define('Relaciones', {
     }
 }, { tableName: 'relaciones' });
 
-TiposRelaciones.hasMany(Relaciones, {through: 'idTiposRelaciones'})
+TiposRelaciones.hasMany(Relaciones, {foreignKey: 'idTiposRelaciones'})
 Relaciones.belongsTo(TiposRelaciones)
 
-Autores.hasMany(Relaciones, {through: 'idAutor'})
+Autores.hasMany(Relaciones, {foreignKey: 'idAutor'})
 Relaciones.belongsTo(Autores)
 
 export {Relaciones}

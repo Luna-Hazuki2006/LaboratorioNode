@@ -7,6 +7,7 @@ import TiposRelacionesRouter from "./components/TiposRelaciones/Router.js";
 import TipoUsuarioRouter from "./components/TipoUsuario/Router.js";
 import CategoriaRouter from './components/Categoria/Router.js'
 import TipoLibroRouter from "./components/TipoLibro/Router.js";
+import LibroRouter from "./components/Libro/Router.js";
 
 const router = (app) => {
     AutorRouter(app)
@@ -18,6 +19,7 @@ const router = (app) => {
     TipoLibroRouter(app)
     TipoUsuarioRouter(app)
     CategoriaRouter(app)
+    LibroRouter(app)
 }
 
 export {router}
