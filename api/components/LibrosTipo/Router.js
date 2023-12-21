@@ -1,19 +1,14 @@
 import { validarCuerpo, validarId } from "./Validaciones.js";
-import { LibroControlador } from "./Controlador.js";
 
 const LibrosTipoRouter = (app) => {
 
-    const controlador = new LibroControlador()
-
-    app.get('/Libro', controlador.Listar);
+    app.get('/LibrosTipo');
     
-    app.get('/Libro/:id', validarId, controlador.Consultar)
+    app.get('/LibrosTipo/:id')
     
-    app.post('/Libro', validarCuerpo, controlador.Crear);
+    app.post('/LibrosTipo');
     
-    app.put('/Libro/:id', validarId, validarCuerpo, controlador.Modificar)
-    
-    app.delete('/Libro/:id', validarId, controlador.Eliminar)
+    app.delete('/LibrosTipo/:id')
     
 }
 
