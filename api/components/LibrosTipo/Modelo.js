@@ -4,14 +4,14 @@ import { TipoLibro } from "../TipoLibro/Modelo.js";
 import { Libro } from "../Libro/Modelo.js";
 
 const LibrosTipo = sequelize.define('LibrosTipo', {
-    IdTipoLibro: {
+    IdLibro: {
         type: DataTypes.INTEGER,
         references: {
             model: TipoLibro, 
             key: 'id'
         }
     },
-    IdLibro: {
+    IdTipoLibro: {
         type: DataTypes.INTEGER,
         references: {
             model: Libro, 
