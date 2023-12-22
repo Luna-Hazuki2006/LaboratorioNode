@@ -7,14 +7,14 @@ const LibrosTipo = sequelize.define('LibrosTipo', {
     IdLibro: {
         type: DataTypes.INTEGER,
         references: {
-            model: TipoLibro, 
+            model: Libro, 
             key: 'id'
         }
     },
     IdTipoLibro: {
         type: DataTypes.INTEGER,
         references: {
-            model: Libro, 
+            model: TipoLibro, 
             key: 'id'
         }
     },  
