@@ -37,7 +37,6 @@ const Usuario = sequelize.define('Usuario', {
     }
 }, { tableName: 'usuario' });
 
-// TipoUsuario.hasMany(Usuario, {through: "idTipoUsuario"})
 TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
 Usuario.belongsTo(TipoUsuario)
 
