@@ -25,11 +25,11 @@ const validarCuerpo = (request, response, next) => {
     if (isNaN(request.body.idLibro)) {
         next(new Error('La id del libro debe ser de tipo numérico'))
     }
-    if (!request.body.idTipoLibro) {
-        next(new Error("Debe ingresar la id del tipo de libro"))
+    if (!request.body.idCategoria) {
+        next(new Error("Debe ingresar la id de la categoría"))
     }
-    if (isNaN(request.body.idTipoLibro)) {
-        next(new Error('La id del tipo de libro debe ser de tipo numérico'))
+    if (isNaN(request.body.idCategoria)) {
+        next(new Error('La id de la categoría debe ser de tipo numérico'))
     }
     next()
 } 

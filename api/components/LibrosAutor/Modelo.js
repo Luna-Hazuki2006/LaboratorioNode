@@ -3,7 +3,7 @@ import { sequelize } from '../../config/coneccion.js';
 import { Autores } from "../Autor/Modelo.js";
 import { Libro } from "../Libro/Modelo.js";
 
-const LibrosAutor = sequelize.define('LibrosTipo', {
+const LibrosAutor = sequelize.define('LibrosAutor', {
     IdLibro: {
         type: DataTypes.INTEGER,
         references: {
@@ -22,7 +22,7 @@ const LibrosAutor = sequelize.define('LibrosTipo', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'libro' });
+}, { tableName: 'librosautor' });
 
 Libro.belongsToMany(Autores, {through: LibrosAutor})
 Autores.belongsToMany(Libro, {through: LibrosAutor})
