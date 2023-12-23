@@ -1,5 +1,4 @@
 import AutorRouter from './components/Autor/Router.js'
-// import LibroRouter from './components/Libro/Router.js'
 // import PublicacionRouter from './components/Publicacion/Router.js'
 // import SesionRouter from './components/Sesion/Router.js'
 import UsuarioRouter from './components/Usuario/Router.js'
@@ -9,10 +8,13 @@ import CategoriaRouter from './components/Categoria/Router.js'
 import TipoLibroRouter from "./components/TipoLibro/Router.js";
 import LibroRouter from "./components/Libro/Router.js";
 import LibrosRelacionRouter from "./components/LibrosRelacion/Router.js";
+import LibroCategoriaRouter from "./components/LibroCategoria/Router.js";
+import LibrosAutorRouter from "./components/LibrosAutor/Router.js";
+import RelacionesRouter from "./components/Relacion/Router.js";
+import LibrosTiposRouter from "./components/LibrosTipo/Router.js";
 
 const router = (app) => {
     AutorRouter(app)
-    // LibroRouter(app)
     // SesionRouter(app)
     // PublicacionRouter(app)
     UsuarioRouter(app)
@@ -22,6 +24,10 @@ const router = (app) => {
     CategoriaRouter(app)
     LibroRouter(app)
     LibrosRelacionRouter(app)
+    LibroCategoriaRouter(app)
+    LibrosAutorRouter(app)
+    RelacionesRouter(app)
+    LibrosTiposRouter(app)
 }
 
 export {router}
