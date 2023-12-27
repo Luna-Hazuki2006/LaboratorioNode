@@ -1,9 +1,6 @@
-const validarId = (request, response, next) => {
-    if (!request.params.id) {
-        next(new Error('Debe ingresar la id'));
-    }
-    if (isNaN(request.params.id)) {
-        next(new Error('La id debe ser de tipo numérico'))
+const validarCedula = (request, response, next) => {
+    if (!request.params.cedula) {
+        next(new Error('Debe ingresar la cédula'));
     }
     next()
 } 
@@ -39,4 +36,4 @@ const validarCuerpo = (request, response, next) => {
     next()
 } 
 
-export {validarCuerpo, validarId}
+export {validarCuerpo, validarCedula}

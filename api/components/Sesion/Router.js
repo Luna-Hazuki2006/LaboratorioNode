@@ -1,3 +1,5 @@
+import { validarCedula, validarCuerpo } from "./Validaciones.js";
+
 const router = (app) => {
 
     app.get('/Sesion');

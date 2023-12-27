@@ -5,7 +5,8 @@ import { Usuario } from "../Usuario/Modelo.js";
 const Sesion = sequelize.define('Sesion', {
     token: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false, 
+        unique: true
     },
     fechaSesion: {
         type: DataTypes.DATE,
@@ -17,7 +18,7 @@ const Sesion = sequelize.define('Sesion', {
     }
 }, { tableName: 'sesion' });
 
-TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
-Usuario.belongsTo(TipoUsuario)
+Sesion.hasMany(Usuario, {foreignKey: "cedula"})
+Usuario.belongsTo(Sesion)
 
 export {Sesion}

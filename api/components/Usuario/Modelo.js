@@ -3,6 +3,11 @@ import { sequelize } from '../../config/coneccion.js';
 import { TipoUsuario } from "../TipoUsuario/Modelo.js";
 
 const Usuario = sequelize.define('Usuario', {
+    cedula: {
+        type: DataTypes.STRING, 
+        allowNull: false, 
+        primaryKey: true
+    }, 
     nombre: {
         type: DataTypes.STRING,
         allowNull: false

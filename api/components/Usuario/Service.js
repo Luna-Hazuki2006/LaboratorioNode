@@ -18,7 +18,7 @@ class UsuarioServicio {
         }
     }
 
-    async Modificar(id, nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario) {
+    async Modificar(cedula, nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario) {
         try {
             return await Usuario.update({
                 nombre, 
@@ -28,23 +28,15 @@ class UsuarioServicio {
                 correo, 
                 contraseña, 
                 idTipoUsuario
-            }, {where: {"id": id}})
+            }, {where: {"cedula": cedula}})
         } catch (error) {
             throw error
         }
     }
 
-    // async Eliminar(id) {
-    //     try {
-    //         return await Usuario.destroy({where: {"id": id}})
-    //     } catch (error) {
-    //         throw error
-    //     }
-    // }
-
-    async Consultar(id) {
+    async Consultar(cedula) {
         try {
-            return await Usuario.findOne({where: {"id": id}})
+            return await Usuario.findOne({where: {"cedula": cedula}})
         } catch (error) {
             throw error
         }

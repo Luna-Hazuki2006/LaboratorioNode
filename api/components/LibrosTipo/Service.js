@@ -1,9 +1,9 @@
-import { LibrosTipos } from "./Modelo.js"
+import { LibrosTipo } from "./Modelo.js"
 
-class LibrosTiposServicio {
+class LibrosTipoServicio {
     async Crear(idLibro, idTipoLibro) {
         try {
-            return await LibrosTipos.create({
+            return await LibrosTipo.create({
                 idLibro,
                 idTipoLibro
               });
@@ -15,7 +15,7 @@ class LibrosTiposServicio {
 
     async Eliminar(idLibro, idTipoLibro) {
         try {
-            return await LibrosTipos.destroy({where: 
+            return await LibrosTipo.destroy({where: 
                 {"idLibro": idLibro, "idTipoLibro": idTipoLibro}})
         } catch (error) {
             throw error
@@ -24,7 +24,7 @@ class LibrosTiposServicio {
 
     async ListarPorLibro(idLibro) {
         try {
-            return await LibrosTipos.findAll({where: {"idLibro": idLibro}})
+            return await LibrosTipo.findAll({where: {"idLibro": idLibro}})
         } catch (error) {
             throw error
         }
@@ -32,11 +32,11 @@ class LibrosTiposServicio {
 
     async ListarPorTipoLibro(idTipoLibro) {
         try {
-            return await LibrosTipos.findAll({where: {"idTipoLibro": idTipoLibro}})
+            return await LibrosTipo.findAll({where: {"idTipoLibro": idTipoLibro}})
         } catch (error) {
             throw error
         }
     }
 }
 
-export {LibrosTiposServicio}
+export {LibrosTipoServicio}

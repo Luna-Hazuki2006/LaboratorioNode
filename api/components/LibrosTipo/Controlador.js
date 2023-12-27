@@ -1,10 +1,10 @@
-import { LibrosTiposServicio } from "./Service.js";
+import { LibrosTipoServicio } from "./Service.js";
 
 class LibrosTiposControlador {
 
     async Crear(request, response) {
         try { 
-            const servicio = new LibrosTiposServicio();
+            const servicio = new LibrosTipoServicio();
             const {idLibro, idTipoLibro} = request.body;
             const Tiposlibros = await servicio.Crear(idLibro, idTipoLibro);
             
@@ -22,7 +22,7 @@ class LibrosTiposControlador {
 
     async Eliminar(request, response) {
         try { 
-            const servicio = new LibrosTiposServicio();
+            const servicio = new LibrosTipoServicio();
             const {idLibro, idTipoLibro} = request.body;
             const libro = await servicio.Eliminar(idLibro, idTipoLibro);
             
@@ -40,7 +40,7 @@ class LibrosTiposControlador {
 
     async ListarPorLibro(request, response) {
         try { 
-            const servicio = new LibrosTiposServicio();
+            const servicio = new LibrosTipoServicio();
             const idLibro = request.params.idLibro
             const data = await servicio.ListarPorLibro(idLibro);
             
@@ -58,7 +58,7 @@ class LibrosTiposControlador {
 
     async ListarPorTipoLibros(request, response) {
         try {
-            const servicio = new LibrosTiposServicio();
+            const servicio = new LibrosTipoServicio();
             const idTipoLibro = request.params.idTipoLibro
             const data = await servicio.ListarPorTipoLibro(idTipoLibro)
             if (data) {
