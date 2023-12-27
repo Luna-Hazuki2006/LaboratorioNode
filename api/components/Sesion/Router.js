@@ -1,17 +1,13 @@
 import { validarCedula, validarCuerpo } from "./Validaciones.js";
 
-const router = (app) => {
+const SesionRouter = (app) => {
 
-    app.get('/Sesion');
+    app.get('/Sesion/cedula/');
     
     app.get('/Sesion/:id')
     
     app.post('/Sesion');
     
-    app.put('/Sesion/:id')
-    
-    app.delete('/Sesion/:id')
-    
 }
 
-export default router;
+export default SesionRouter;

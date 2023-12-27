@@ -3,42 +3,21 @@ import { sequelize } from '../../config/coneccion.js';
 import { Usuario } from "../Usuario/Modelo.js";
 import { Libro } from "../Libro/Modelo.js";
 
-const Usuario = sequelize.define('Usuario', {
-    nombre: {
+const Publicacion = sequelize.define('Publicacion', {
+    descripcion: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    apellido: {
-        type: DataTypes.STRING,
-        allowNull: false
-    }, 
-    fechaNacimiento: {
-        type: DataTypes.DATE, 
-        allowNull: false
-    }, 
-    direccion: {
-        type: DataTypes.STRING, 
-        allowNull: false
-    }, 
-    correo: {
-        type: DataTypes.DATE, 
-        allowNull: false
-    }, 
-    contraseña: {
-        type: DataTypes.DATE, 
-        allowNull: false
-    }, 
-    idTipoUsuario: {
-        type: DataTypes.INTEGER, 
-        allowNull: false
-    }, 
     createdAt: {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'usuario' });
+}, { tableName: 'publicacion' });
 
-TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
-Usuario.belongsTo(TipoUsuario)
+Usuario.hasMany(Publicacion, {foreignKey: "cedulaUsuario"})
+Publicacion.belongsTo(Usuario)
 
-export {Usuario}
+Libro.hasMany(Publicacion, {foreignKey: 'idLibro'})
+Publicacion.belongsTo(Libro)
+
+export {Publicacion}

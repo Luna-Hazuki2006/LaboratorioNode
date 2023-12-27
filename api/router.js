@@ -1,5 +1,5 @@
 import AutorRouter from './components/Autor/Router.js'
-// import PublicacionRouter from './components/Publicacion/Router.js'
+import PublicacionRouter from './components/Publicacion/Router.js'
 // import SesionRouter from './components/Sesion/Router.js'
 import UsuarioRouter from './components/Usuario/Router.js'
 import TiposRelacionesRouter from "./components/TiposRelaciones/Router.js";
@@ -16,7 +16,7 @@ import LibrosTiposRouter from "./components/LibrosTipo/Router.js";
 const router = (app) => {
     AutorRouter(app)
     // SesionRouter(app)
-    // PublicacionRouter(app)
+    PublicacionRouter(app)
     UsuarioRouter(app)
     TiposRelacionesRouter(app)
     TipoLibroRouter(app)

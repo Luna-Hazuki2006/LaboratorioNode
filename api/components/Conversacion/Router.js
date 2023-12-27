@@ -1,14 +1,14 @@
+import { validarCuerpo, validarId } from "./Validaciones.js";
+
 const router = (app) => {
 
     app.get('/Router');
     
-    app.get('/Router/:id')
+    app.get('/Router/:id', validarId)
     
-    app.post('/Router');
+    app.post('/Router', validarCuerpo);
     
-    app.put('/Router/:id')
-    
-    app.delete('/Router/:id')
+    app.delete('/Router/:id', validarId)
     
 }
 
