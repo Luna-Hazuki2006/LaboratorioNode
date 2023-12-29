@@ -1,6 +1,8 @@
 import AutorRouter from './components/Autor/Router.js'
 import PublicacionRouter from './components/Publicacion/Router.js'
 // import SesionRouter from './components/Sesion/Router.js'
+// import MensajeRouter from "./components/Mensaje/Router.js";
+// import ConversacionRouter from "./components/Conversacion/Router.js";
 import UsuarioRouter from './components/Usuario/Router.js'
 import TiposRelacionesRouter from "./components/TiposRelaciones/Router.js";
 import TipoUsuarioRouter from "./components/TipoUsuario/Router.js";
@@ -16,6 +18,8 @@ import LibrosTiposRouter from "./components/LibrosTipo/Router.js";
 const router = (app) => {
     AutorRouter(app)
     // SesionRouter(app)
+    // MensajeRouter(app)
+    // ConversacionRouter(app)
     PublicacionRouter(app)
     UsuarioRouter(app)
     TiposRelacionesRouter(app)
