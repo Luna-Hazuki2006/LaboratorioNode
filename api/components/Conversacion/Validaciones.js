@@ -8,6 +8,23 @@ const validarId = (request, response, next) => {
     next()
 } 
 
+const validarUsuarioCedula = (request, response, next) => {
+    if (!request.params.usuarioCedula) {
+        next(new Error('Debe ingresar la cédula del usuario'));
+    }
+    next()
+} 
+
+const validarPublicacionId = (request, response, next) => {
+    if (!request.params.publicacionId) {
+        next(new Error('Debe ingresar la id de la publicación'));
+    }
+    if (isNaN(request.params.publicacionId)) {
+        next(new Error('La id de la publicación debe ser de tipo numérico'))
+    }
+    next()
+} 
+
 const validarCuerpo = (request, response, next) => {
     if (!request.body.fecha) {
         next(new Error('Debe ingresar la fecha'));
@@ -15,16 +32,16 @@ const validarCuerpo = (request, response, next) => {
     if (isNaN(Date.parse(request.body.fecha))) {
         next(new Error('La fecha debe ser de tipo fecha'))
     }
-    if (!request.body.cedulaUsuario) {
+    if (!request.body.usuarioCedula) {
         next(new Error("Debe ingresar la cedula de usuario"))
     }
-    if (!request.body.idPublicacion) {
+    if (!request.body.publicacionId) {
         next(new Error("Debe ingresar la id de la publicación"))
     }
-    if (isNaN(request.body.idPublicacion)) {
+    if (isNaN(request.body.publicacionId)) {
         next(new Error('La id de la publicación debe ser de tipo numérico'))
     }
     next()
 } 
 
-export {validarCuerpo, validarId}
+export {validarCuerpo, validarId, validarPublicacionId, validarUsuarioCedula}

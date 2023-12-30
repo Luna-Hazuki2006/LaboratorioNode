@@ -1,15 +1,20 @@
-import { validarCuerpo, validarId } from "./Validaciones.js";
+import { validarCuerpo, validarId, validarPublicacionId, validarUsuarioCedula } from "./Validaciones.js";
+import { ConversacionControlador } from "./Controlador.js";
 
-const router = (app) => {
+const ConversacionRouter = (app) => {
 
-    app.get('/Router');
+    const controlador = new ConversacionControlador()
+
+    app.get('/Conversacion/Usuario/:usuarioCedula', validarUsuarioCedula, controlador.ListarPorUsuario);
+
+    app.get('/Conversacion/Publicacion/:publicacionId', validarPublicacionId, controlador.ListarPorPublicacion)
     
-    app.get('/Router/:id', validarId)
+    app.get('/Conversacion/:id', validarId, controlador.Crear)
     
-    app.post('/Router', validarCuerpo);
+    app.post('/Conversacion', validarCuerpo, controlador.Consultar);
     
-    app.delete('/Router/:id', validarId)
+    // app.delete('/Conversacion/:id', validarId)
     
 }
 
-export default router;
+export default ConversacionRouter;
