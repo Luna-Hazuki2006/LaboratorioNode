@@ -1,15 +1,18 @@
-const router = (app) => {
+import { validarConversacionId, validarCuerpo, validarId, validarUsuarioCedula } from "./Validaciones.js";
+import { MensajeControlador } from "./Controlador.js";
 
-    app.get('/Mensaje');
+const MensajeRouter = (app) => {
+
+    const controlador = new MensajeControlador()
+
+    app.get('/Mensaje/Conversacion/:idConversacion');
+
+    app.get('/Mensaje/Usuario/:idConversacion/:')
     
-    app.get('/Mensaje/:id')
+    app.get('/Mensaje/:idConversacion/:id')
     
-    app.post('/Mensaje');
-    
-    app.put('/Mensaje/:id')
-    
-    app.delete('/Mensaje/:id')
+    app.post('/Mensaje', validarCuerpo, controlador.Crear);
     
 }
 
-export default router;
+export default MensajeRouter;

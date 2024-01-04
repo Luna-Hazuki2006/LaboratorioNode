@@ -62,7 +62,8 @@ class PublicacionControlador {
             const servicio = new PublicacionServicio();
             const id = request.params.id
             const publicaciones = await servicio.Consultar(id);
-            
+            const resultadoReal = await publicaciones.toJSON()
+            console.log(resultadoReal);
             if (publicaciones) {
                 response.status(200).json({data: publicaciones});
             }
