@@ -15,17 +15,26 @@ class MensajeServicio {
         }
     }
 
-    async Consultar(id) {
+    async Consultar(conversacionId, id) {
         try {
-            return await Mensaje.findOne({where: {"id": id}})
+            return await Mensaje.findOne({
+                where: {
+                    "conversacionId": conversacionId, 
+                    "id": id
+                }})
         } catch (error) {
             throw error
         }
     }
 
-    async ListarPorUsuario(usuarioCedula) {
+    async ListarPorUsuario(conversacionId, usuarioCedula) {
         try {
-            return await Mensaje.findAll({where: {"usuarioCedula": usuarioCedula}})
+            return await Mensaje.findAll({
+                where: 
+                {
+                    "conversacionId": conversacionId, 
+                    "usuarioCedula": usuarioCedula
+                }})
         } catch (error) {
             throw error
         }

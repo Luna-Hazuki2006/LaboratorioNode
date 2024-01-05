@@ -5,11 +5,11 @@ const MensajeRouter = (app) => {
 
     const controlador = new MensajeControlador()
 
-    app.get('/Mensaje/Conversacion/:idConversacion');
+    app.get('/Mensaje/Conversacion/:conversacionId', validarConversacionId, controlador.ListarPorConversacion);
 
-    app.get('/Mensaje/Usuario/:idConversacion/:')
+    app.get('/Mensaje/Usuario/:conversacionId/:usuarioCedula', validarConversacionId, validarUsuarioCedula, controlador.ListarPorUsuario)
     
-    app.get('/Mensaje/:idConversacion/:id')
+    app.get('/Mensaje/:conversacionId/:id', validarConversacionId, validarId, controlador.Consultar)
     
     app.post('/Mensaje', validarCuerpo, controlador.Crear);
     

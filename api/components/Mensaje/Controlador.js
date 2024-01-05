@@ -24,7 +24,8 @@ class MensajeControlador {
         try { 
             const servicio = new MensajeServicio();
             const id = request.params.id
-            const mensaje = await servicio.Consultar(id);
+            const conversacionId = request.params.conversacionId
+            const mensaje = await servicio.Consultar(conversacionId, id);
             
             if (mensaje) {
                 response.status(200).json({data: mensaje});
@@ -42,7 +43,8 @@ class MensajeControlador {
         try {
             const servicio = new MensajeServicio();
             const usuarioCedula = request.params.usuarioCedula
-            const data = await servicio.Listar(usuarioCedula)
+            const conversacionId = request.params.conversacionId
+            const data = await servicio.Listar(conversacionId, usuarioCedula)
             if (data) {
                 response.status(200).json({"data": data})
             } else {

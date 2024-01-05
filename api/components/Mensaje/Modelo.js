@@ -21,7 +21,7 @@ const Mensaje = sequelize.define('Mensaje', {
 Usuario.hasMany(Mensaje, {foreignKey: "usuarioCedula"})
 Mensaje.belongsTo(Usuario)
 
-Conversacion.hasMany(Mensaje, {foreignKey: 'ConversacionId'})
+Conversacion.hasMany(Mensaje, {foreignKey: 'conversacionId'})
 Mensaje.belongsTo(Conversacion)
 
 export {Mensaje}
