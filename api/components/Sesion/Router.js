@@ -1,12 +1,15 @@
-import { validarCedula, validarCuerpo } from "./Validaciones.js";
+import { validarUsuario, validarCuerpo, validarId } from "./Validaciones.js";
+import { SesionControlador } from "./Controlador.js";
 
 const SesionRouter = (app) => {
 
-    app.get('/Sesion/cedula/');
+    const controlador = new SesionControlador()
+
+    app.get('/Sesion/cedula/:cedulaUsuario', validarUsuario, controlador.ListarPorUsuario);
     
-    app.get('/Sesion/:id')
+    app.get('/Sesion/:id', validarId, controlador.Consultar)
     
-    app.post('/Sesion');
+    app.post('/Sesion', validarCuerpo, controlador.Crear);
     
 }
 

@@ -8,6 +8,13 @@ const validarId = (request, response, next) => {
     next()
 } 
 
+const validarUsuario = (request, response, next) => {
+    if (!request.params.cedulaUsuario) {
+        next(new Error('Debe ingresar la id'));
+    }
+    next()
+} 
+
 const validarCuerpo = (request, response, next) => {
     if (!request.body.token) {
         next(new Error('Debe ingresar el token'));
@@ -24,4 +31,4 @@ const validarCuerpo = (request, response, next) => {
     next()
 } 
 
-export {validarCuerpo, validarId}
+export {validarCuerpo, validarId, validarUsuario}
