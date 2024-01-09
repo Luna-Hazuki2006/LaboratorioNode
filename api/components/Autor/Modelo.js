@@ -11,8 +11,8 @@ const Autores = sequelize.define('Autor', {
         allowNull: false
     }, 
     foto: {
-        type: DataTypes.BLOB, 
-        allowNull: false
+        type: DataTypes.STRING, 
+        allowNull: true
     }, 
     createdAt: {
         type: DataTypes.DATE, 

@@ -1,14 +1,22 @@
 import { LibroServicio } from "./Service.js";
+import { LibroCategoriaServicio } from "../LibroCategoria/Service.js";
 
 class LibroControlador {
 
     async Crear(request, response) {
         try { 
+            const servicioLibroCategoria = new LibroCategoriaServicio()
             const servicio = new LibroServicio();
-            const {nombre, sinopsis} = request.body;
+            const {nombre, sinopsis, categorias} = request.body;
             const libro = await servicio.Crear(nombre, sinopsis);
             
             if (libro) {
+                for (const categoria of categorias) {
+                    const librosCategorias = await servicioLibroCategoria.Crear(libro.id, categoria)
+                    if (!librosCategorias) {
+                        response.status(400).send("Hubo un problema con las categorías")
+                    }
+                }
                 response.status(200).json({data: libro});
             }
             else {

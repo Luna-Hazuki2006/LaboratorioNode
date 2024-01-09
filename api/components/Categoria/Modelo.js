@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize'; 
 import { sequelize } from '../../config/coneccion.js';
+import { Libro } from "../Libro/Modelo.js";
 
 const Categorias = sequelize.define('Categoria', {
     nombre: {
@@ -15,5 +16,7 @@ const Categorias = sequelize.define('Categoria', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'categoriaAna' });
+
+// Categorias.belongsToMany(Libro, {through: "LibroCategoria", as: 'libros', foreignKey: 'idCategoria'})
 // ahora que hago :'v
 export {Categorias}

@@ -15,7 +15,7 @@ const validarCuerpo = (request, response, next) => {
     if (!request.body.biografía) {
         next(new Error("Debe ingresar la biografía"))
     }
-    if (!request.body.Foto) {
+    if (!request.body.foto) {
         next(new Error("Debe ingresar un blob de la foto"))
     }
     next()
