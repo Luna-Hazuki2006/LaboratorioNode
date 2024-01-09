@@ -14,6 +14,6 @@ const TipoLibro = sequelize.define('TipoLibro', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'tipolibro' });
+}, { tableName: 'tipolibroAna' });
 
 export {TipoLibro}

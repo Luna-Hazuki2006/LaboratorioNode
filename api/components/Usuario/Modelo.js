@@ -40,7 +40,7 @@ const Usuario = sequelize.define('Usuario', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'usuario' });
+}, { tableName: 'usuarioAna' });
 
 TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
 Usuario.belongsTo(TipoUsuario)

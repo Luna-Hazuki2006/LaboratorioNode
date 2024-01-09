@@ -24,7 +24,7 @@ const Relaciones = sequelize.define('Relaciones', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'relaciones' });
+}, { tableName: 'relacionesAna' });
 
 TiposRelaciones.hasMany(Relaciones, {foreignKey: 'idTiposRelaciones'})
 Relaciones.belongsTo(TiposRelaciones)

@@ -22,7 +22,7 @@ const LibrosTipo = sequelize.define('LibrosTipo', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'libro' });
+}, { tableName: 'libroAna' });
 
 Libro.belongsToMany(TipoLibro, {through: LibrosTipo})
 TipoLibro.belongsToMany(Libro, {through: LibrosTipo})

@@ -18,6 +18,6 @@ const TipoUsuario = sequelize.define('TipoUsuario', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'tipousuario' });
+}, { tableName: 'tipousuarioAna' });
 
 export {TipoUsuario}

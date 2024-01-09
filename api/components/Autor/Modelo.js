@@ -18,6 +18,6 @@ const Autores = sequelize.define('Autor', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'autor' });
+}, { tableName: 'autorAna' });
 
 export {Autores}

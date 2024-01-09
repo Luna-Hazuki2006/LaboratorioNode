@@ -14,6 +14,6 @@ const TiposRelaciones = sequelize.define('TiposRelaciones', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'tiposrelaciones' });
+}, { tableName: 'tiposrelacionesAna' });
 
 export {TiposRelaciones}

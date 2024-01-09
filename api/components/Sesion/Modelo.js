@@ -20,7 +20,7 @@ const Sesion = sequelize.define('Sesion', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'sesion' });
+}, { tableName: 'sesionAna' });
 
 Usuario.hasMany(Sesion, {foreignKey: "cedulaUsuario"})
 Sesion.belongsTo(Usuario)

@@ -12,7 +12,7 @@ const Conversacion = sequelize.define('Conversacion', {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
     }
-}, { tableName: 'conversacion' });
+}, { tableName: 'conversacionAna' });
 
 Usuario.hasMany(Conversacion, {foreignKey: "usuarioCedula"})
 Conversacion.belongsTo(Usuario)
