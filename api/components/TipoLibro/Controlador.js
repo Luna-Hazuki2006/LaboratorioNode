@@ -16,7 +16,7 @@ class TipoLibroControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -35,7 +35,7 @@ class TipoLibroControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -51,9 +51,9 @@ class TipoLibroControlador {
             else {
                 response.status(400).send('no hay datos u otro mensaje');
             }
-        }
+        } 
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -71,7 +71,7 @@ class TipoLibroControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -85,7 +85,7 @@ class TipoLibroControlador {
                 response.status(400).send("no hay datos y otro mensaje")
             }
         } catch (error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 }

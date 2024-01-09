@@ -9,7 +9,7 @@ const Libro = sequelize.define('Libro', {
     sinopsis: {
         type: DataTypes.STRING,
         allowNull: true
-    },  
+    }, 
     createdAt: {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
