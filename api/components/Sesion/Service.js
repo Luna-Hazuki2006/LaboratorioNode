@@ -22,6 +22,16 @@ class SesionServicio {
         }
     }
 
+    async Cerrar(id, fechaFin) {
+        try {
+            return await Sesion.update({
+                fechaFin
+            }, {where: {"id": id}})
+        } catch (error) {
+            throw error
+        }
+    }
+
     async ListarPorUsuario(usuarioCedula) {
         try {
             return await Sesion.findAll({where: {"usuarioCedula": usuarioCedula}})

@@ -10,6 +10,8 @@ const SesionRouter = (app) => {
     app.get('/Sesion/:id', validarId, controlador.Consultar)
     
     app.post('/Sesion', validarCuerpo, controlador.Crear);
+
+    app.put('/Sesion/:id', validarId, controlador.Cerrar)
     
 }
 

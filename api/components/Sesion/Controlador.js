@@ -38,6 +38,25 @@ class SesionControlador {
         }
     }
 
+    async Cerrar(request, response) {
+        try { 
+            const servicio = new SesionServicio();
+            const id = request.params.id
+            const fechaFin = new Date()
+            const sesion = await servicio.Cerrar(id, fechaFin);
+            
+            if (sesion) {
+                response.status(200).send("Se cerró la sesión exitósamente");
+            }
+            else {
+                response.status(400).send('No se encuentra la sesión');
+            }
+        }
+        catch(error) {
+            response.status(500).send(error)
+        }
+    }
+
     async ListarPorUsuario(request, response) {
         try {
             const servicio = new SesionServicio();

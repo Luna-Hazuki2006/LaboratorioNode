@@ -12,6 +12,10 @@ const Sesion = sequelize.define('Sesion', {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     }, 
+    fechaFin: {
+        type: DataTypes.DATE, 
+        allowNull: true
+    }, 
     createdAt: {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
