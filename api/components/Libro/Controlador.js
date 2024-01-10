@@ -10,6 +10,8 @@ class LibroControlador {
         try { 
             const servicioLibroCategoria = new LibroCategoriaServicio()
             const servicioLibroAutor = new LibrosAutorServicio()
+            const servicioLibroTipo = new LibrosTipoServicio()
+            const servicioLibroRelacion = new LibrosRelacionServicio()
             const servicio = new LibroServicio();
             const {nombre, sinopsis, categorias, autores, tipos, relaciones} = request.body;
             const libro = await servicio.Crear(nombre, sinopsis);
@@ -27,6 +29,18 @@ class LibroControlador {
                         response.status(400).send("Hubo un problema con los autores")
                     }
                 }
+                for (const tipo of tipos) {
+                    const librosTipos = await servicioLibroTipo.Crear(libro.id, tipo)
+                    if (!librosTipos) {
+                        response.status(400).send("Hubo un problema con los tipos")
+                    }
+                }
+                for (const relacion of relaciones) {
+                    const librosRelaciones = await servicioLibroRelacion.Crear(libro.id, relacion)
+                    if (!librosRelaciones) {
+                        response.status(400).send("Hubo un problema con las relaciones")
+                    }
+                }
                 response.status(200).json({data: libro});
             }
             else {
@@ -40,12 +54,40 @@ class LibroControlador {
 
     async Modificar(request, response) {
         try { 
+            const servicioLibroCategoria = new LibroCategoriaServicio()
+            const servicioLibroAutor = new LibrosAutorServicio()
+            const servicioLibroTipo = new LibrosTipoServicio()
+            const servicioLibroRelacion = new LibrosRelacionServicio()
             const servicio = new LibroServicio();
-            const {nombre, sinopsis} = request.body;
+            const {nombre, sinopsis, categorias, autores, tipos, relaciones} = request.body;
             const id = request.params.id
             const libro = await servicio.Modificar(id, nombre, sinopsis);
             
             if (libro) {
+                for (const categoria of categorias) {
+                    const librosCategorias = await servicioLibroCategoria.Crear(libro.id, categoria)
+                    if (!librosCategorias) {
+                        response.status(400).send("Hubo un problema con las categorías")
+                    }
+                }
+                for (const autor of autores) {
+                    const librosAutores = await servicioLibroAutor.Crear(libro.id, autor)
+                    if (!librosAutores) {
+                        response.status(400).send("Hubo un problema con los autores")
+                    }
+                }
+                for (const tipo of tipos) {
+                    const librosTipos = await servicioLibroTipo.Crear(libro.id, tipo)
+                    if (!librosTipos) {
+                        response.status(400).send("Hubo un problema con los tipos")
+                    }
+                }
+                for (const relacion of relaciones) {
+                    const librosRelaciones = await servicioLibroRelacion.Crear(libro.id, relacion)
+                    if (!librosRelaciones) {
+                        response.status(400).send("Hubo un problema con las relaciones")
+                    }
+                }
                 response.status(200).json({data: "Se modificó con éxito :D"});
             }
             else {
