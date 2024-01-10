@@ -1,13 +1,17 @@
 import { LibroServicio } from "./Service.js";
 import { LibroCategoriaServicio } from "../LibroCategoria/Service.js";
+import { LibrosAutorServicio } from "../LibrosAutor/Service.js";
+import { LibrosTipoServicio } from "../LibrosTipo/Service.js";
+import { LibrosRelacionServicio } from "../LibrosRelacion/Service.js";
 
 class LibroControlador {
 
     async Crear(request, response) {
         try { 
             const servicioLibroCategoria = new LibroCategoriaServicio()
+            const servicioLibroAutor = new LibrosAutorServicio()
             const servicio = new LibroServicio();
-            const {nombre, sinopsis, categorias} = request.body;
+            const {nombre, sinopsis, categorias, autores, tipos, relaciones} = request.body;
             const libro = await servicio.Crear(nombre, sinopsis);
             
             if (libro) {
@@ -17,6 +21,12 @@ class LibroControlador {
                         response.status(400).send("Hubo un problema con las categorías")
                     }
                 }
+                for (const autor of autores) {
+                    const librosAutores = await servicioLibroAutor.Crear(libro.id, autor)
+                    if (!librosAutores) {
+                        response.status(400).send("Hubo un problema con los autores")
+                    }
+                }
                 response.status(200).json({data: libro});
             }
             else {
@@ -24,7 +34,7 @@ class LibroControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -43,7 +53,7 @@ class LibroControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -61,7 +71,7 @@ class LibroControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -79,7 +89,7 @@ class LibroControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -93,7 +103,7 @@ class LibroControlador {
                 response.status(400).send("no hay datos y otro mensaje")
             }
         } catch (error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 }

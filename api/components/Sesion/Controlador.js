@@ -16,7 +16,7 @@ class SesionControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -34,7 +34,7 @@ class SesionControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -53,7 +53,7 @@ class SesionControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -68,7 +68,7 @@ class SesionControlador {
                 response.status(400).send("no hay datos y otro Sesion")
             }
         } catch (error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 

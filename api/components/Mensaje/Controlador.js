@@ -16,7 +16,7 @@ class MensajeControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -35,7 +35,7 @@ class MensajeControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -51,7 +51,7 @@ class MensajeControlador {
                 response.status(400).send("no hay datos y otro mensaje")
             }
         } catch (error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -66,7 +66,7 @@ class MensajeControlador {
                 response.status(400).send("no hay datos y otro mensaje")
             }
         } catch (error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 }

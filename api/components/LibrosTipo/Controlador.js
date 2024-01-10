@@ -16,7 +16,7 @@ class LibrosTiposControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -34,7 +34,7 @@ class LibrosTiposControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -52,7 +52,7 @@ class LibrosTiposControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -67,7 +67,7 @@ class LibrosTiposControlador {
                 response.status(400).send("No se encuentran libros con este tipo")
             }
         } catch (error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 }

@@ -17,7 +17,7 @@ class CategoriaControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -36,7 +36,7 @@ class CategoriaControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -54,7 +54,7 @@ class CategoriaControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -72,7 +72,7 @@ class CategoriaControlador {
             }
         }
         catch(error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 
@@ -86,7 +86,7 @@ class CategoriaControlador {
                 response.status(400).send("no hay datos y otro mensaje")
             }
         } catch (error) {
-            response.status(500).send(error)
+            response.status(400).send(error)
         }
     }
 }
