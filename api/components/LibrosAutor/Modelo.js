@@ -4,14 +4,14 @@ import { Autores } from "../Autor/Modelo.js";
 import { Libro } from "../Libro/Modelo.js";
 
 const LibrosAutor = sequelize.define('LibrosAutor', {
-    IdLibro: {
+    idLibro: {
         type: DataTypes.INTEGER,
         references: {
             model: Libro, 
             key: 'id'
         }
     },
-    IdAutor: {
+    idAutor: {
         type: DataTypes.INTEGER,
         references: {
             model: Autores, 
@@ -24,7 +24,7 @@ const LibrosAutor = sequelize.define('LibrosAutor', {
     }
 }, { tableName: 'librosautorAna' });
 
-Libro.belongsToMany(Autores, {through: LibrosAutor})
-Autores.belongsToMany(Libro, {through: LibrosAutor})
+// Libro.belongsToMany(Autores, {through: LibrosAutor})
+// Autores.belongsToMany(Libro, {through: LibrosAutor})
 
 export {LibrosAutor}
