@@ -1,4 +1,4 @@
-import { Libro } from "../modelo.js"
+import { Libro, Categorias, TipoLibro, Relaciones, Autores } from "../modelo.js"
 
 class LibroServicio {
     async Crear(nombre, sinopsis) {
@@ -42,7 +42,7 @@ class LibroServicio {
 
     async Listar() {
         try {
-            return await Libro.findAll({})
+            return await Libro.findAll({include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
