@@ -1,4 +1,4 @@
-import { Publicacion } from "./Modelo.js"
+import { Publicacion } from "../modelo.js"
 
 class PublicacionServicio {
     async Crear(descripcion, cedulaUsuario, idLibro) {

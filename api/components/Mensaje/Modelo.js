@@ -18,10 +18,10 @@ const Mensaje = sequelize.define('Mensaje', {
     }
 }, { tableName: 'mensajeAna' });
 
-Usuario.hasMany(Mensaje, {foreignKey: "usuarioCedula"})
-Mensaje.belongsTo(Usuario)
+// Usuario.hasMany(Mensaje, {foreignKey: "usuarioCedula"})
+// Mensaje.belongsTo(Usuario)
 
-Conversacion.hasMany(Mensaje, {foreignKey: 'conversacionId'})
-Mensaje.belongsTo(Conversacion)
+// Conversacion.hasMany(Mensaje, {foreignKey: 'conversacionId'})
+// Mensaje.belongsTo(Conversacion)
 
 export {Mensaje}

@@ -1,4 +1,4 @@
-import { TiposRelaciones } from "./Modelo.js"
+import { TiposRelaciones } from "../modelo.js"
 
 class TiposRelacionesServicio {
     async Crear(nombre, descripcion) {

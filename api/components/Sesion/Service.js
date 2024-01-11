@@ -1,4 +1,4 @@
-import { Sesion } from "./Modelo.js"
+import { Sesion } from "../modelo.js"
 
 class SesionServicio {
     async Crear(token, fechaSesion, usuarioCedula) {

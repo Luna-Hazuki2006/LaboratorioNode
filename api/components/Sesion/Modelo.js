@@ -22,7 +22,7 @@ const Sesion = sequelize.define('Sesion', {
     }
 }, { tableName: 'sesionAna' });
 
-Usuario.hasMany(Sesion, {foreignKey: "cedulaUsuario"})
-Sesion.belongsTo(Usuario)
+// Usuario.hasMany(Sesion, {foreignKey: "cedulaUsuario"})
+// Sesion.belongsTo(Usuario)
 
 export {Sesion}

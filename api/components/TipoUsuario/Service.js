@@ -1,4 +1,4 @@
-import { TipoUsuario } from "./Modelo.js"
+import { TipoUsuario } from "../modelo.js"
 
 class TipoUsuarioServicio {
     async Crear(nombre, descripcion, estatus) {

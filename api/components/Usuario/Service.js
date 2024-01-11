@@ -1,4 +1,4 @@
-import { Usuario } from "./Modelo.js"
+import { Usuario } from "../modelo.js"
 
 class UsuarioServicio {
     async Crear(nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario) {

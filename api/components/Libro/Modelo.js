@@ -20,9 +20,6 @@ const Libro = sequelize.define('Libro', {
     }
 }, { tableName: 'libroAna' });
 
-Libro.belongsToMany(Categorias, {through: "LibroCategoria", as: 'categorias', foreignKey: 'idLibro'})
-Libro.belongsToMany(Autores, {through: "LibrosAutor", as: 'autores', foreignKey: 'idLibro'})
-Libro.belongsToMany(TipoLibro, {through: "LibrosTipo", as: 'tipolibro', foreignKey: 'idLibro'})
-Libro.belongsToMany(Relaciones, {through: "LibrosRelacion", as: 'relaciones', foreignKey: 'idLibro'})
+
 
 export {Libro}

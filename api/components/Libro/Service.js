@@ -1,4 +1,4 @@
-import { Libro } from "./Modelo.js"
+import { Libro } from "../modelo.js"
 
 class LibroServicio {
     async Crear(nombre, sinopsis) {

@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize'; 
 import { sequelize } from '../../config/coneccion.js';
-import { Libro } from "../Libro/Modelo.js";
+import { Relaciones } from "../Relacion/Modelo.js";
 
 const Autores = sequelize.define('Autor', {
     nombre: {
@@ -22,5 +22,6 @@ const Autores = sequelize.define('Autor', {
 }, { tableName: 'autorAna' });
 
 // Autores.belongsToMany(Libro, {through: "LibrosAutor", as: ''})
+
 
 export {Autores}

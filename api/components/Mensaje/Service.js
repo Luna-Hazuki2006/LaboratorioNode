@@ -1,4 +1,4 @@
-import { Mensaje } from "./Modelo.js"
+import { Mensaje } from "../modelo.js"
 
 class MensajeServicio {
     async Crear(fecha, texto, usuarioCedula, conversacionId) {

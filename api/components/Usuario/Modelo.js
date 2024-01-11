@@ -42,7 +42,7 @@ const Usuario = sequelize.define('Usuario', {
     }
 }, { tableName: 'usuarioAna' });
 
-TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
-Usuario.belongsTo(TipoUsuario)
+// TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
+// Usuario.belongsTo(TipoUsuario)
 
 export {Usuario}

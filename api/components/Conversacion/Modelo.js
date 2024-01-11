@@ -14,10 +14,10 @@ const Conversacion = sequelize.define('Conversacion', {
     }
 }, { tableName: 'conversacionAna' });
 
-Usuario.hasMany(Conversacion, {foreignKey: "usuarioCedula"})
-Conversacion.belongsTo(Usuario)
+// Usuario.hasMany(Conversacion, {foreignKey: "usuarioCedula"})
+// Conversacion.belongsTo(Usuario)
 
-Publicacion.hasMany(Conversacion, {foreignKey: 'publicacionId'})
-Conversacion.belongsTo(Publicacion)
+// Publicacion.hasMany(Conversacion, {foreignKey: 'publicacionId'})
+// Conversacion.belongsTo(Publicacion)
 
 export {Conversacion}
