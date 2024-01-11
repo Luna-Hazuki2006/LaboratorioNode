@@ -1,3 +1,5 @@
+import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+
 const validarId = (request, response, next) => {
     if (!request.params.id) {
         next(new Error('Debe ingresar la id'));
@@ -9,12 +11,13 @@ const validarId = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    if (!request.body.nombre) {
-        next(new Error('Debe ingresar el nombre'));
-    }
-    if (!request.body.sinopsis) {
-        next(new Error("Debe ingresar la sinopsis"))
-    }
+    ValidarCuerpoEntero(request, response, next)
+    // if (!request.body.nombre) {
+    //     next(new Error('Debe ingresar el nombre'));
+    // }
+    // if (!request.body.sinopsis) {
+    //     next(new Error("Debe ingresar la sinopsis"))
+    // }
     next()
 } 
 

@@ -1,3 +1,5 @@
+import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+
 const validarId = (request, response, next) => {
     if (!request.params.id) {
         next(new Error('Debe ingresar la id'));
@@ -9,18 +11,19 @@ const validarId = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    if (!request.body.nombre) {
-        next(new Error('Debe ingresar el nombre'));
-    }
-    if (!request.body.descripcion) {
-        next(new Error("Debe ingresar el descripción"))
-    }
-    if (!request.body.idTiposRelaciones) {
-        next(new Error("Debe ingresar la id del tipo de relación"))
-    }
-    if (!request.body.idAutor) {
-        next(new Error("Debe ingresar la id del autor"))
-    }
+    ValidarCuerpoEntero(request, response, next)
+    // if (!request.body.nombre) {
+    //     next(new Error('Debe ingresar el nombre'));
+    // }
+    // if (!request.body.descripcion) {
+    //     next(new Error("Debe ingresar el descripción"))
+    // }
+    // if (!request.body.idTiposRelaciones) {
+    //     next(new Error("Debe ingresar la id del tipo de relación"))
+    // }
+    // if (!request.body.idAutor) {
+    //     next(new Error("Debe ingresar la id del autor"))
+    // }
     next()
 } 
 

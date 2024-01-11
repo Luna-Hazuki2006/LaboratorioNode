@@ -1,3 +1,5 @@
+import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+
 const validarId = (request, response, next) => {
     if (!request.params.id) {
         next(new Error('Debe ingresar la id'));
@@ -9,18 +11,22 @@ const validarId = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    if (!request?.body?.nombre?.trim()) {
-        next(new Error('Debe ingresar el nombre'));
-    }
-    if (request.body.nombre.trim() == '') {
-        next(new Error('El nombre tiene que tener texto'));
-    }
-    if (!request?.body?.descripcion?.trim()) {
-        next(new Error("Debe ingresar el descripción"))
-    }
-    if (request.body.descripcion.trim() == '') {
-        next(new Error('La descripción tiene que tener texto'));
-    }
+    // if (!request?.body) {
+    //     next(new Error('Debe ingresar el body de la request'));
+    // }
+    // if (!request?.body?.nombre?.trim()) {
+    //     next(new Error('Debe ingresar el nombre'));
+    // }
+    // if (request.body.nombre.trim() == '') {
+    //     next(new Error('El nombre tiene que tener texto'));
+    // }
+    // if (!request?.body?.descripcion?.trim()) {
+    //     next(new Error("Debe ingresar el descripción"))
+    // }
+    // if (request.body.descripcion.trim() == '') {
+    //     next(new Error('La descripción tiene que tener texto'));
+    // }
+    ValidarCuerpoEntero(request, response, next)
     next()
 } 
 

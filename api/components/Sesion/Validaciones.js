@@ -1,3 +1,5 @@
+import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+
 const validarId = (request, response, next) => {
     if (!request.params.id) {
         next(new Error('Debe ingresar la id'));
@@ -16,18 +18,19 @@ const validarUsuario = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    if (!request.body.token) {
-        next(new Error('Debe ingresar el token'));
-    }
-    if (!request.body.fechaSesion) {
-        next(new Error("Debe ingresar la fecha de la sesión"))
-    }
-    if (isNaN(Date.parse(request.body.fechaSesion))) {
-        next(new Error("La fecha de la sesión debe ser de tipo fecha"))
-    }
-    if (!request.body.cedulaUsuario) {
-        next(new Error("Debe ingresar la cédula de usuario"))
-    }
+    ValidarCuerpoEntero(request, response, next)
+    // if (!request.body.token) {
+    //     next(new Error('Debe ingresar el token'));
+    // }
+    // if (!request.body.fechaSesion) {
+    //     next(new Error("Debe ingresar la fecha de la sesión"))
+    // }
+    // if (isNaN(Date.parse(request.body.fechaSesion))) {
+    //     next(new Error("La fecha de la sesión debe ser de tipo fecha"))
+    // }
+    // if (!request.body.cedulaUsuario) {
+    //     next(new Error("Debe ingresar la cédula de usuario"))
+    // }
     next()
 } 
 
