@@ -21,7 +21,8 @@ const validarIdTipoLibro = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    ValidarCuerpoEntero(request, response, next)
+    const lista = []
+    ValidarCuerpoEntero(request, lista)
     // if (!request.body.idLibro) {
     //     next(new Error('Debe ingresar la id del libro'));
     // }

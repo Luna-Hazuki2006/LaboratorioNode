@@ -1,21 +1,21 @@
-// export function ValidarCuerpoEntero(request, validables) {
-function ValidarCuerpoEntero(request, response, next) {
+function ValidarCuerpoEntero(request, validables) {
+// function ValidarCuerpoEntero(request, response, next) {
     // if (!request?.body) {
     //     return 'Debe ingresar el body de la request'
     // }
-    // for (const [index, propiedad] of validables) {
-    //     if (!request.body[propiedad]) {
-    //         return `Debe ingresar ${propiedad}`;
+    // for (const [index, value] of validables.entries()) {
+    //     if (!request.body[value]) {
+    //         return `Debe ingresar ${value}`;
     //     }
-    //     switch (typeof request.body[propiedad]) {
+    //     switch (typeof request.body[value]) {
     //         case "string":
-    //             if (request.body[propiedad].trim() == '') {
-    //                 return `${propiedad} no puede ser un string vacío`
+    //             if (request.body[value].trim() == '') {
+    //                 return `${value} no puede ser un string vacío`
     //             }
     //             break;
     //         case "object": 
-    //             if (isNaN(Date.parse(request.body[propiedad]))) {
-    //                 return `${propiedad} no puede tiene que ser un date`
+    //             if (isNaN(Date.parse(request.body[value]))) {
+    //                 return `${value} no puede tiene que ser un date`
     //             }
     //             break;
     //         case "number": 

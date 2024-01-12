@@ -1,4 +1,6 @@
+import { json } from "sequelize";
 import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+import { Categorias } from "../modelo.js";
 
 const validarId = (request, response, next) => {
     if (!request.params.id) {
@@ -11,7 +13,9 @@ const validarId = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    ValidarCuerpoEntero(request, response, next)
+    const lista = Categorias.getAttributes()
+    console.log(json(lista));
+    ValidarCuerpoEntero(request, lista)
     // if (!request.body.nombre) {
     //     next(new Error('Debe ingresar el nombre'));
     // }

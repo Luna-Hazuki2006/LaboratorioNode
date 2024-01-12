@@ -18,7 +18,8 @@ const validarUsuario = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    ValidarCuerpoEntero(request, response, next)
+    const lista = []
+    ValidarCuerpoEntero(request, lista)
     // if (!request.body.token) {
     //     next(new Error('Debe ingresar el token'));
     // }

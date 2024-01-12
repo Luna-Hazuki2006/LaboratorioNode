@@ -8,7 +8,8 @@ const validarCedula = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    ValidarCuerpoEntero(request, response, next)
+    const lista = []
+    ValidarCuerpoEntero(request, lista)
     // if (!request.body.nombre) {
     //     next(new Error('Debe ingresar el nombre'));
     // }

@@ -26,7 +26,8 @@ const validarCuerpo = (request, response, next) => {
     // if (request.body.descripcion.trim() == '') {
     //     next(new Error('La descripción tiene que tener texto'));
     // }
-    ValidarCuerpoEntero(request, response, next)
+    const lista = []
+    ValidarCuerpoEntero(request, lista)
     next()
 } 
 

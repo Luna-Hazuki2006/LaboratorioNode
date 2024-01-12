@@ -28,7 +28,8 @@ const validarPublicacionId = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    ValidarCuerpoEntero(request, response, next)
+    const lista = []
+    ValidarCuerpoEntero(request, lista)
     // if (!request.body.fecha) {
     //     next(new Error('Debe ingresar la fecha'));
     // }
