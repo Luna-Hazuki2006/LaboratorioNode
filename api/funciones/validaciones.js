@@ -1,8 +1,47 @@
+import { DATE, INTEGER, STRING, json } from "sequelize";
+
 function ValidarCuerpoEntero(request, validables) {
-// function ValidarCuerpoEntero(request, response, next) {
-    // if (!request?.body) {
-    //     return 'Debe ingresar el body de la request'
+    const lista = json(validables)['conditions']
+    const nombres = Object.keys(lista)
+    nombres.pop()
+    nombres.pop()
+    nombres.shift()
+    console.log(nombres);
+    // for (const esto of Object.values(lista)) {
+    //     console.log(esto['type'] instanceof STRING);
+    //     if (Object.keys(esto['type']).includes('STRING')) {
+    //         console.log('Es un string');
+    //     }
+    //     console.log(esto['type']);
     // }
+    // console.log(request.body);
+    if (!request?.body) {
+        return 'Debe ingresar el body de la request'
+    }
+    for (const propiedad of nombres) {
+        if (!request.body[propiedad]) {
+            return `Debe ingresar la propiedad \"${propiedad}\"`
+        }
+        if (lista[propiedad]['type'] instanceof INTEGER) {
+            if (!Number.isInteger(request.body[propiedad])) {
+                return `La propiedad \"${propiedad}\" debe ser de tipo numérico`
+            }
+        } else if (lista[propiedad]['type'] instanceof STRING) {
+            if (typeof request.body[propiedad] === 'string' || 
+                request.body[propiedad] instanceof String) {
+                if (request.body[propiedad].trim() == '') {
+                    return `La propiedad \"${propiedad}\" no puede estar vacía`
+                }
+            } else {
+                return `La propiedad \"${propiedad}\" debe ser de tipo string`
+            }
+        } else if (lista[propiedad]['type'] instanceof DATE) {
+            if (isNaN(Date.parse(request.body[propiedad]))) {
+                return `La propiedad \"${propiedad}\" debe ser de tipo date`
+            } 
+        }
+    }
+    console.log(request.body);
     // for (const [index, value] of validables.entries()) {
     //     if (!request.body[value]) {
     //         return `Debe ingresar ${value}`;
