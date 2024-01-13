@@ -16,7 +16,7 @@ class SesionServicio {
 
     async Consultar(id) {
         try {
-            return await Sesion.findOne({where: {"id": id}, include: [{ all: true, nested: true }]})
+            return await Sesion.findOne({where: {"id": id}, include: [{ all: true }]})
         } catch (error) {
             throw error
         }
@@ -34,7 +34,7 @@ class SesionServicio {
 
     async ListarPorUsuario(usuarioCedula) {
         try {
-            return await Sesion.findAll({where: {"usuarioCedula": usuarioCedula}, include: [{ all: true, nested: true }]})
+            return await Sesion.findAll({where: {"usuarioCedula": usuarioCedula}, include: [{ all: true }]})
         } catch (error) {
             throw error
         }

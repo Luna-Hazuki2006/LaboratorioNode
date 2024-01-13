@@ -16,12 +16,10 @@ import { LibrosRelacion } from "./LibrosRelacion/Modelo.js";
 import { LibrosTipo } from "./LibrosTipo/Modelo.js";
 
 Autores.hasMany(Relaciones, {foreignKey: 'idAutor'})
-
-Usuario.hasMany(Conversacion, {foreignKey: "usuarioCedula"})
-Conversacion.belongsTo(Usuario)
+Relaciones.belongsTo(Autores, {foreignKey: 'idAutor'})
 
 Publicacion.hasMany(Conversacion, {foreignKey: 'publicacionId'})
-Conversacion.belongsTo(Publicacion)
+Conversacion.belongsTo(Publicacion, {foreignKey: 'publicacionId'})
 
 Libro.belongsToMany(Categorias, {through: "librocategoriaAna", as: 'categorias', foreignKey: 'idLibro'})
 Libro.belongsToMany(Autores, {through: "librosautorAna", as: 'autores', foreignKey: 'idLibro'})
@@ -33,29 +31,29 @@ Autores.belongsToMany(Libro, {through: "librosautorAna", foreignKey: 'idAutor'})
 TipoLibro.belongsToMany(Libro, {through: "librostipoAna", foreignKey: 'idTipoLibro'})
 Relaciones.belongsToMany(Libro, {through: "librosrelacionAna", foreignKey: 'idRelacion'})
 
-Usuario.hasMany(Mensaje, {foreignKey: "usuarioCedula"})
-Mensaje.belongsTo(Usuario)
-
 Conversacion.hasMany(Mensaje, {foreignKey: 'conversacionId'})
-Mensaje.belongsTo(Conversacion)
-
-Usuario.hasMany(Publicacion, {foreignKey: "cedulaUsuario"})
-Publicacion.belongsTo(Usuario)
+Mensaje.belongsTo(Conversacion, {foreignKey: 'conversacionId'})
 
 Libro.hasMany(Publicacion, {foreignKey: 'idLibro'})
-Publicacion.belongsTo(Libro)
-
-Relaciones.belongsTo(TiposRelaciones)
-
-Relaciones.belongsTo(Autores)
-
-Usuario.hasMany(Sesion, {foreignKey: "cedulaUsuario"})
-Sesion.belongsTo(Usuario)
+Publicacion.belongsTo(Libro, {foreignKey: 'idLibro'})
 
 TiposRelaciones.hasMany(Relaciones, {foreignKey: 'idTiposRelaciones'})
+Relaciones.belongsTo(TiposRelaciones, {foreignKey: 'idTiposRelaciones'})
 
 TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
-Usuario.belongsTo(TipoUsuario)
+Usuario.belongsTo(TipoUsuario, {foreignKey: "idTipoUsuario"})
+
+Usuario.hasMany(Conversacion, {foreignKey: "usuarioCedula"})
+Conversacion.belongsTo(Usuario, {foreignKey: "usuarioCedula"})
+
+Usuario.hasMany(Mensaje, {foreignKey: "usuarioCedula"})
+Mensaje.belongsTo(Usuario, {foreignKey: "usuarioCedula"})
+
+Usuario.hasMany(Publicacion, {foreignKey: "cedulaUsuario"})
+Publicacion.belongsTo(Usuario, {foreignKey: "cedulaUsuario"})
+
+Usuario.hasMany(Sesion, {foreignKey: "cedulaUsuario"})
+Sesion.belongsTo(Usuario, {foreignKey: "cedulaUsuario"})
 
 export {
     Autores, Categorias, Conversacion, Libro, TipoLibro, 

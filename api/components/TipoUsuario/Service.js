@@ -36,7 +36,7 @@ class TipoUsuarioServicio {
 
     async Consultar(id) {
         try {
-            return await TipoUsuario.findOne({where: {"id": id}, include: [{ all: true, nested: true }]})
+            return await TipoUsuario.findOne({where: {"id": id}, include: [{ all: true }]})
         } catch (error) {
             throw error
         }
@@ -44,7 +44,7 @@ class TipoUsuarioServicio {
 
     async Listar() {
         try {
-            return await TipoUsuario.findAll({include: [{ all: true, nested: true }]})
+            return await TipoUsuario.findAll({include: [{ all: true }]})
         } catch (error) {
             throw error
         }

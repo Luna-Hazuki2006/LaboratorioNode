@@ -1,14 +1,15 @@
-import { Mensaje } from "../modelo.js"
+import { Mensaje, Usuario, Conversacion } from "../modelo.js"
 
 class MensajeServicio {
     async Crear(fecha, texto, usuarioCedula, conversacionId) {
         try {
-            return await Mensaje.create({
+            const mensaje = await Mensaje.create({
                 fecha, 
                 texto, 
-                usuarioCedula, 
-                conversacionId
-              });
+            });
+            return mensaje
+            const usuario = await Usuario.findOne({where: {"cedula": usuarioCedula}})
+            const conversacion = await Conversacion.findOne({where: {"id": conversacionId}})
         }
         catch(error) {
             throw error
@@ -21,7 +22,7 @@ class MensajeServicio {
                 where: {
                     "conversacionId": conversacionId, 
                     "id": id
-                }, include: [{ all: true, nested: true }]})
+                }, include: [{ all: true }]})
         } catch (error) {
             throw error
         }
@@ -34,7 +35,7 @@ class MensajeServicio {
                 {
                     "conversacionId": conversacionId, 
                     "usuarioCedula": usuarioCedula
-                }, include: [{ all: true, nested: true }]})
+                }, include: [{ all: true }]})
         } catch (error) {
             throw error
         }
@@ -43,7 +44,7 @@ class MensajeServicio {
     async ListarPorConversacion(conversacionId) {
         try {
             return await Mensaje.findAll({where: {"conversacionId": conversacionId}, 
-                                            include: [{ all: true, nested: true }]})
+                                            include: [{ all: true }]})
         } catch (error) {
             throw error
         }

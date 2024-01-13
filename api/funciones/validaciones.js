@@ -38,6 +38,7 @@ function ValidarCuerpoEntero(request, validables) {
 
 export {ValidarCuerpoEntero}
 
-// Terminar las validaciones, pasando validables a un objeto con sus nombres y valores
-// Buscar como hacer el forof con el index
-// Buscar si validaciones extra: mínimo, máximo
+// Poder crear, eliminar relaciones de muchos a muchos en una mismna entidad sin 
+// tener que declarar los servicios de la clase intermedia 
+// https://sequelize.org/docs/v6/advanced-association-concepts/advanced-many-to-many/ 
+// https://stackoverflow.com/questions/34831639/how-to-remove-relation-for-specific-instances-with-sequelize-mysql

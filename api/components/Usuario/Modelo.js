@@ -32,10 +32,6 @@ const Usuario = sequelize.define('Usuario', {
         type: DataTypes.DATE, 
         allowNull: false
     }, 
-    idTipoUsuario: {
-        type: DataTypes.INTEGER, 
-        allowNull: false
-    }, 
     createdAt: {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW
