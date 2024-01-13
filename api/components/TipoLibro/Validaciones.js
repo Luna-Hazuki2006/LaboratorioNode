@@ -1,4 +1,5 @@
 import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+import { TipoLibro } from "../modelo.js";
 
 const validarId = (request, response, next) => {
     if (!request.params.id) {
@@ -26,8 +27,9 @@ const validarCuerpo = (request, response, next) => {
     // if (request.body.descripcion.trim() == '') {
     //     next(new Error('La descripción tiene que tener texto'));
     // }
-    const lista = []
-    ValidarCuerpoEntero(request, lista)
+    const validables = TipoLibro.getAttributes()
+    const error = ValidarCuerpoEntero(request, validables)
+    if (error) next(new Error(error))
     next()
 } 
 

@@ -1,4 +1,5 @@
 import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+import { Relaciones } from "../modelo.js";
 
 const validarId = (request, response, next) => {
     if (!request.params.id) {
@@ -11,8 +12,9 @@ const validarId = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    const lista = []
-    ValidarCuerpoEntero(request, lista)
+    const validables = Relaciones.getAttributes()
+    const error = ValidarCuerpoEntero(request, validables)
+    if (error) next(new Error(error))
     // if (!request.body.nombre) {
     //     next(new Error('Debe ingresar el nombre'));
     // }

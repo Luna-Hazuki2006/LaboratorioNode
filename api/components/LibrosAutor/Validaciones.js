@@ -1,4 +1,5 @@
 import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+import { LibrosAutor } from "../modelo.js";
 
 const validarIdLibro = (request, response, next) => {
     if (!request.params.idLibro) {
@@ -21,8 +22,9 @@ const validarIdAutor = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    const lista = []
-    ValidarCuerpoEntero(request, lista)
+    const validables = LibrosAutor.getAttributes()
+    const error = ValidarCuerpoEntero(request, validables)
+    if (error) next(new Error(error))
     // if (!request.body.idLibro) {
     //     next(new Error('Debe ingresar la id del libro'));
     // }

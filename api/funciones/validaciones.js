@@ -7,17 +7,10 @@ function ValidarCuerpoEntero(request, validables) {
     nombres.pop()
     nombres.shift()
     console.log(nombres);
-    // for (const esto of Object.values(lista)) {
-    //     console.log(esto['type'] instanceof STRING);
-    //     if (Object.keys(esto['type']).includes('STRING')) {
-    //         console.log('Es un string');
-    //     }
-    //     console.log(esto['type']);
-    // }
-    // console.log(request.body);
     if (!request?.body) {
         return 'Debe ingresar el body de la request'
     }
+    console.log(request.body);
     for (const propiedad of nombres) {
         if (!request.body[propiedad]) {
             return `Debe ingresar la propiedad \"${propiedad}\"`
@@ -41,59 +34,7 @@ function ValidarCuerpoEntero(request, validables) {
             } 
         }
     }
-    console.log(request.body);
-    // for (const [index, value] of validables.entries()) {
-    //     if (!request.body[value]) {
-    //         return `Debe ingresar ${value}`;
-    //     }
-    //     switch (typeof request.body[value]) {
-    //         case "string":
-    //             if (request.body[value].trim() == '') {
-    //                 return `${value} no puede ser un string vacío`
-    //             }
-    //             break;
-    //         case "object": 
-    //             if (isNaN(Date.parse(request.body[value]))) {
-    //                 return `${value} no puede tiene que ser un date`
-    //             }
-    //             break;
-    //         case "number": 
-    //             if (isNaN(request.body[propiedad])) {
-    //                 return `${propiedad} no puede ser de tipo NAN`
-    //             }
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
-
-
-
-
-    // for (let i = 0; i < listaNombres.length; i++) {
-    //     if (!request.body[listaNombres[i]]) {
-    //         return `Debe ingresar ${listaNombres[i]}`;
-    //     }
-    //     switch (typeof listaValores[i]) {
-    //         case "string":
-    //             if (request.body[listaNombres[i]].trim() == '') {
-    //                 return `${listaNombres[i]} no puede ser un string vacío`
-    //             }
-    //             break;
-    //         case "object": 
-    //             if (isNaN(Date.parse(request.body[listaNombres[i]]))) {
-    //                 next(new Error(`${listaNombres[i]} no puede tiene que ser un date`))
-    //             }
-    //             break;
-    //         case "number": 
-    //             if (isNaN(request.body[listaNombres[i]])) {
-    //                 next(new Error(`${listaNombres[i]} no puede ser de tipo NAN`))
-    //             }
-    //             break;
-    //         default:
-    //             break;
-    //     }
-    // }
+    return false
 }
 
 export {ValidarCuerpoEntero}

@@ -1,4 +1,5 @@
 import { ValidarCuerpoEntero } from "../../funciones/validaciones.js";
+import { Conversacion } from "../modelo.js";
 
 const validarId = (request, response, next) => {
     if (!request.params.id) {
@@ -28,8 +29,9 @@ const validarPublicacionId = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    const lista = []
-    ValidarCuerpoEntero(request, lista)
+    const validables = Conversacion.getAttributes()
+    const error = ValidarCuerpoEntero(request, validables)
+    if (error) next(new Error(error))
     // if (!request.body.fecha) {
     //     next(new Error('Debe ingresar la fecha'));
     // }

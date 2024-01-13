@@ -13,7 +13,8 @@ const validarId = (request, response, next) => {
 
 const validarCuerpo = (request, response, next) => {
     const validables = Categorias.getAttributes()
-    ValidarCuerpoEntero(request, validables)
+    const error = ValidarCuerpoEntero(request, validables)
+    if (error) next(new Error(error))
     // if (!request.body.nombre) {
     //     next(new Error('Debe ingresar el nombre'));
     // }
