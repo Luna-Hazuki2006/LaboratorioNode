@@ -34,7 +34,7 @@ class TiposRelacionesServicio {
 
     async Consultar(id) {
         try {
-            return await TiposRelaciones.findOne({where: {"id": id}})
+            return await TiposRelaciones.findOne({where: {"id": id}, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -42,7 +42,7 @@ class TiposRelacionesServicio {
 
     async Listar() {
         try {
-            return await TiposRelaciones.findAll({})
+            return await TiposRelaciones.findAll({include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }

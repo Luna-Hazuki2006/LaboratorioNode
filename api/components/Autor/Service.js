@@ -36,7 +36,7 @@ class AutorServicio {
 
     async Consultar(id) {
         try {
-            return await Autores.findOne({where: {"id": id}})
+            return await Autores.findOne({where: {"id": id}, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -44,7 +44,7 @@ class AutorServicio {
 
     async Listar() {
         try {
-            return await Autores.findAll({})
+            return await Autores.findAll({include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }

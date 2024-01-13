@@ -36,7 +36,7 @@ class UsuarioServicio {
 
     async Consultar(cedula) {
         try {
-            return await Usuario.findOne({where: {"cedula": cedula}})
+            return await Usuario.findOne({where: {"cedula": cedula}, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -44,7 +44,7 @@ class UsuarioServicio {
 
     async Listar() {
         try {
-            return await Usuario.findAll({})
+            return await Usuario.findAll({include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }

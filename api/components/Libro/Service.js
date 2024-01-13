@@ -34,7 +34,7 @@ class LibroServicio {
 
     async Consultar(id) {
         try {
-            return await Libro.findOne({where: {"id": id}})
+            return await Libro.findOne({where: {"id": id}, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }

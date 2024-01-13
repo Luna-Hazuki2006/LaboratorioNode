@@ -21,7 +21,7 @@ class MensajeServicio {
                 where: {
                     "conversacionId": conversacionId, 
                     "id": id
-                }})
+                }, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -34,7 +34,7 @@ class MensajeServicio {
                 {
                     "conversacionId": conversacionId, 
                     "usuarioCedula": usuarioCedula
-                }})
+                }, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -42,7 +42,8 @@ class MensajeServicio {
 
     async ListarPorConversacion(conversacionId) {
         try {
-            return await Mensaje.findAll({where: {"conversacionId": conversacionId}})
+            return await Mensaje.findAll({where: {"conversacionId": conversacionId}, 
+                                            include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }

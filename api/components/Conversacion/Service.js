@@ -16,7 +16,7 @@ class ConversacionServicio {
 
     async Consultar(id) {
         try {
-            return await Conversacion.findOne({where: {"id": id}})
+            return await Conversacion.findOne({where: {"id": id}, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -24,7 +24,8 @@ class ConversacionServicio {
 
     async ListarPorUsuario(usuarioCedula) {
         try {
-            return await Conversacion.findAll({where: {"usuarioCedula": usuarioCedula}})
+            return await Conversacion.findAll({where: {"usuarioCedula": usuarioCedula}, 
+                                                include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -32,7 +33,8 @@ class ConversacionServicio {
 
     async ListarPorPublicacion(publicacionId) {
         try {
-            return await Conversacion.findAll({where: {"publicacionId": publicacionId}})
+            return await Conversacion.findAll({where: {"publicacionId": publicacionId}, 
+                                                include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }

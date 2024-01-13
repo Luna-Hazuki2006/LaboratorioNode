@@ -36,7 +36,7 @@ class PublicacionServicio {
 
     async Consultar(id) {
         try {
-            return await Publicacion.findOne({where: {"id": id}})
+            return await Publicacion.findOne({where: {"id": id}, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -44,7 +44,7 @@ class PublicacionServicio {
 
     async Listar() {
         try {
-            return await Publicacion.findAll({})
+            return await Publicacion.findAll({include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }

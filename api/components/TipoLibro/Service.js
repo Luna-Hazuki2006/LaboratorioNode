@@ -34,7 +34,7 @@ class TipoLibroServicio {
 
     async Consultar(id) {
         try {
-            return await TipoLibro.findOne({where: {"id": id}})
+            return await TipoLibro.findOne({where: {"id": id}, include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
@@ -42,7 +42,7 @@ class TipoLibroServicio {
 
     async Listar() {
         try {
-            return await TipoLibro.findAll({})
+            return await TipoLibro.findAll({include: [{ all: true, nested: true }]})
         } catch (error) {
             throw error
         }
