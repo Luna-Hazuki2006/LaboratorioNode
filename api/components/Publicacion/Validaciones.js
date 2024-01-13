@@ -15,18 +15,6 @@ const validarCuerpo = (request, response, next) => {
     const validables = Publicacion.getAttributes()
     const error = ValidarCuerpoEntero(request, validables)
     if (error) next(new Error(error))
-    // if (!request.body.descripcion) {
-    //     next(new Error('Debe ingresar la descripción'));
-    // }
-    // if (!request.body.cedulaUsuario) {
-    //     next(new Error("Debe ingresar la cedula de usuario"))
-    // }
-    // if (!request.body.idLibro) {
-    //     next(new Error("Debe ingresar la id del libro"))
-    // }
-    // if (isNaN(request.body.idLibro)) {
-    //     next(new Error('La id del libro debe ser de tipo numérico'))
-    // }
     next()
 } 
 

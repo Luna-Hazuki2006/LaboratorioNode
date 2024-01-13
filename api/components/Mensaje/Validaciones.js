@@ -32,24 +32,6 @@ const validarCuerpo = (request, response, next) => {
     const validables = Mensaje.getAttributes()
     const error = ValidarCuerpoEntero(request, validables)
     if (error) next(new Error(error))
-    // if (!request.body.fecha) {
-    //     next(new Error('Debe ingresar la fecha'));
-    // }
-    // if (isNaN(Date.parse(request.body.fecha))) {
-    //     next(new Error('La fecha debe ser de tipo fecha'))
-    // }
-    // if (!request.body.texto) {
-    //     next(new Error("Debe ingresar el texto del mensaje"))
-    // }
-    // if (!request.body.usuarioCedula) {
-    //     next(new Error("Debe ingresar la cédula del usuario"))
-    // }
-    // if (!request.body.conversacionId) {
-    //     next(new Error("Debe ingresar la id de la conversación"))
-    // }
-    // if (isNaN(request.body.conversacionId)) {
-    //     next(new Error('La id de la conversación debe ser de tipo numérico'))
-    // }
     next()
 } 
 

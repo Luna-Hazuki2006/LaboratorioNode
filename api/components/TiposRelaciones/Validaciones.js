@@ -15,12 +15,6 @@ const validarCuerpo = (request, response, next) => {
     const validables = TiposRelaciones.getAttributes()
     const error = ValidarCuerpoEntero(request, validables)
     if (error) next(new Error(error))
-    // if (!request.body.nombre) {
-    //     next(new Error('Debe ingresar el nombre'));
-    // }
-    // if (!request.body.descripcion) {
-    //     next(new Error("Debe ingresar el descripción"))
-    // }
     next()
 } 
 

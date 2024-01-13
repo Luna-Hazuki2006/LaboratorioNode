@@ -32,21 +32,6 @@ const validarCuerpo = (request, response, next) => {
     const validables = Conversacion.getAttributes()
     const error = ValidarCuerpoEntero(request, validables)
     if (error) next(new Error(error))
-    // if (!request.body.fecha) {
-    //     next(new Error('Debe ingresar la fecha'));
-    // }
-    // if (isNaN(Date.parse(request.body.fecha))) {
-    //     next(new Error('La fecha debe ser de tipo fecha'))
-    // }
-    // if (!request.body.usuarioCedula) {
-    //     next(new Error("Debe ingresar la cedula de usuario"))
-    // }
-    // if (!request.body.publicacionId) {
-    //     next(new Error("Debe ingresar la id de la publicación"))
-    // }
-    // if (isNaN(request.body.publicacionId)) {
-    //     next(new Error('La id de la publicación debe ser de tipo numérico'))
-    // }
     next()
 } 
 

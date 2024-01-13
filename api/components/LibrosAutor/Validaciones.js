@@ -25,18 +25,6 @@ const validarCuerpo = (request, response, next) => {
     const validables = LibrosAutor.getAttributes()
     const error = ValidarCuerpoEntero(request, validables)
     if (error) next(new Error(error))
-    // if (!request.body.idLibro) {
-    //     next(new Error('Debe ingresar la id del libro'));
-    // }
-    // if (isNaN(request.body.idLibro)) {
-    //     next(new Error('La id del libro debe ser de tipo numérico'))
-    // }
-    // if (!request.body.idAutor) {
-    //     next(new Error("Debe ingresar la id del autor"))
-    // }
-    // if (isNaN(request.body.idAutor)) {
-    //     next(new Error('La id del autor debe ser de tipo numérico'))
-    // }
     next()
 } 
 
