@@ -20,8 +20,7 @@ function ValidarCuerpoEntero(request, validables) {
                 return `La propiedad \"${propiedad}\" debe ser de tipo numérico`
             }
         } else if (lista[propiedad]['type'] instanceof STRING) {
-            if (typeof request.body[propiedad] === 'string' || 
-                request.body[propiedad] instanceof String) {
+            if (request.body[propiedad] instanceof String) {
                 if (request.body[propiedad].trim() == '') {
                     return `La propiedad \"${propiedad}\" no puede estar vacía`
                 }
