@@ -1,13 +1,23 @@
 import { Sesion } from "../modelo.js"
+import { UsuarioServicio } from "../Usuario/Service.js";
 
 class SesionServicio {
-    async Crear(token, fechaSesion, usuarioCedula) {
+    async Crear(contraseña, usuarioCedula) {
         try {
-            return await Sesion.create({
+            let token = {
+                "fecha": new Date(), 
+                "cédula": usuarioCedula, 
+                "duración en minutos": 5, 
+                "Información importante": Math.random().toString()
+            }
+            const servicio = new UsuarioServicio()
+            const usuario = await servicio.Consultar(usuarioCedula)
+            const sesion = await Sesion.create({
                 token, 
                 fechaSesion, 
                 usuarioCedula
-              });
+            });
+            await usuario.addSesion(sesion)
         }
         catch(error) {
             throw error

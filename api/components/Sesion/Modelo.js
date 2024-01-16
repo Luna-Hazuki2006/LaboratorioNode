@@ -5,8 +5,7 @@ import { Usuario } from "../Usuario/Modelo.js";
 const Sesion = sequelize.define('Sesion', {
     token: {
         type: DataTypes.STRING,
-        allowNull: false, 
-        unique: true
+        allowNull: true, 
     },
     fechaSesion: {
         type: DataTypes.DATE,

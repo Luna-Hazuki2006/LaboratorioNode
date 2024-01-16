@@ -2,17 +2,12 @@ import { SesionServicio } from "./Service.js";
 
 class SesionControlador {
 
-    async Crear(request, response) {
+    async Iniciar(request, response) {
         try { 
             const servicio = new SesionServicio();
-            const {token, fechaSesion, usuarioCedula} = request.body;
-            const info = {
-                "fecha": fechaSesion, 
-                "cédula": usuarioCedula, 
-                "duración en minutos": 5, 
-                "Información importante": "aldsfjaojdfaposdfjpas"
-            }
-            const sesion = await servicio.Crear(token, fechaSesion, usuarioCedula);
+            const {contraseña, usuarioCedula} = request.body;
+            // token = servicio.Nuevo(info)
+            const sesion = await servicio.Crear(contraseña, usuarioCedula);
             
             if (sesion) {
                 response.status(200).json({data: sesion});
@@ -77,7 +72,6 @@ class SesionControlador {
             response.status(400).send(error)
         }
     }
-
 }
 
 export {SesionControlador}
