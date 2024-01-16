@@ -5,7 +5,7 @@ class SesionServicio {
     async Crear(contraseña, usuarioCedula) {
         try {
             let token = {
-                "fecha": new Date(), 
+                "fecha": (new Date()).getMilliseconds(), 
                 "cédula": usuarioCedula, 
                 "duración en minutos": 5, 
                 "Información importante": Math.random().toString()
@@ -40,11 +40,9 @@ class SesionServicio {
         }
     }
 
-    async Cerrar(id, fechaFin) {
+    async Cerrar(id) {
         try {
-            return await Sesion.update({
-                fechaFin
-            }, {where: {"id": id}})
+            return await Sesion.destroy({where: {"id": id}})
         } catch (error) {
             throw error
         }

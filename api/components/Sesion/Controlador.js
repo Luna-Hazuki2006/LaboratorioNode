@@ -43,8 +43,7 @@ class SesionControlador {
         try { 
             const servicio = new SesionServicio();
             const id = request.params.id
-            const fechaFin = new Date()
-            const sesion = await servicio.Cerrar(id, fechaFin);
+            const sesion = await servicio.Cerrar(id);
             
             if (sesion) {
                 response.status(200).send("Se cerró la sesión exitósamente");
