@@ -6,6 +6,12 @@ class SesionControlador {
         try { 
             const servicio = new SesionServicio();
             const {token, fechaSesion, usuarioCedula} = request.body;
+            const info = {
+                "fecha": fechaSesion, 
+                "cédula": usuarioCedula, 
+                "duración en minutos": 5, 
+                "Información importante": "aldsfjaojdfaposdfjpas"
+            }
             const sesion = await servicio.Crear(token, fechaSesion, usuarioCedula);
             
             if (sesion) {
@@ -75,3 +81,9 @@ class SesionControlador {
 }
 
 export {SesionControlador}
+
+// en el token: 
+// fecha de conección, cédula usuario, duración de la sesión, caracteres bonitos
+// guardar caracteres bonitos en la base de datos
+// eso se le va a dar al usuario SIN CONTRASEÑA
+// Esto va a ser también para el recuperativo

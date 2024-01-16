@@ -14,6 +14,14 @@ class SesionServicio {
         }
     }
 
+    Nuevo(token) {
+        try {
+            return btoa(token)
+        } catch (error) {
+            throw error
+        }
+    }
+
     async Consultar(id) {
         try {
             return await Sesion.findOne({where: {"id": id}, include: [{ all: true }]})
