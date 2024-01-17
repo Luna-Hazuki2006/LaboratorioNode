@@ -1,12 +1,16 @@
-import { Libro, Categorias, TipoLibro, Relaciones, Autores } from "../modelo.js"
+import { Libro } from "../modelo.js"
+import { LibroCategoriaServicio } from "../LibroCategoria/Service.js";
+import { LibrosAutorServicio } from "../LibrosAutor/Service.js";
+import { LibrosTipoServicio } from "../LibrosTipo/Service.js";
+import { LibrosRelacionServicio } from "../LibrosRelacion/Service.js";
 
 class LibroServicio {
     async Crear(nombre, sinopsis) {
         try {
-            return await Libro.create({
+            const libro = await Libro.create({
                 nombre,
                 sinopsis
-              });
+            });
         }
         catch(error) {
             throw error

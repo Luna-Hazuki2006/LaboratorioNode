@@ -1,14 +1,18 @@
 import { Relaciones } from "../modelo.js"
+import { TiposRelacionesServicio } from "../TiposRelaciones/Service.js";
 
 class RelacionesServicio {
     async Crear(nombre, descripcion, idTiposRelaciones, idAutor) {
         try {
-            return await Relaciones.create({
+            const servicio = new TiposRelacionesServicio()
+            const tipo = await servicio.Consultar(idTiposRelaciones)
+            const relacion = await Relaciones.create({
                 nombre,
                 descripcion, 
                 idTiposRelaciones, 
                 idAutor
-              });
+            });
+            relacion.addTiposRelaciones(tipo)
         }
         catch(error) {
             throw error

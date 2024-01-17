@@ -1,8 +1,4 @@
 import { LibroServicio } from "./Service.js";
-import { LibroCategoriaServicio } from "../LibroCategoria/Service.js";
-import { LibrosAutorServicio } from "../LibrosAutor/Service.js";
-import { LibrosTipoServicio } from "../LibrosTipo/Service.js";
-import { LibrosRelacionServicio } from "../LibrosRelacion/Service.js";
 
 class LibroControlador {
 
@@ -17,30 +13,30 @@ class LibroControlador {
             const libro = await servicio.Crear(nombre, sinopsis);
             
             if (libro) {
-                for (const categoria of categorias) {
-                    const librosCategorias = await servicioLibroCategoria.Crear(libro.id, categoria)
-                    if (!librosCategorias) {
-                        response.status(400).send("Hubo un problema con las categorías")
-                    }
-                }
-                for (const autor of autores) {
-                    const librosAutores = await servicioLibroAutor.Crear(libro.id, autor)
-                    if (!librosAutores) {
-                        response.status(400).send("Hubo un problema con los autores")
-                    }
-                }
-                for (const tipo of tipos) {
-                    const librosTipos = await servicioLibroTipo.Crear(libro.id, tipo)
-                    if (!librosTipos) {
-                        response.status(400).send("Hubo un problema con los tipos")
-                    }
-                }
-                for (const relacion of relaciones) {
-                    const librosRelaciones = await servicioLibroRelacion.Crear(libro.id, relacion)
-                    if (!librosRelaciones) {
-                        response.status(400).send("Hubo un problema con las relaciones")
-                    }
-                }
+                // for (const categoria of categorias) {
+                //     const librosCategorias = await servicioLibroCategoria.Crear(libro.id, categoria)
+                //     if (!librosCategorias) {
+                //         response.status(400).send("Hubo un problema con las categorías")
+                //     }
+                // }
+                // for (const autor of autores) {
+                //     const librosAutores = await servicioLibroAutor.Crear(libro.id, autor)
+                //     if (!librosAutores) {
+                //         response.status(400).send("Hubo un problema con los autores")
+                //     }
+                // }
+                // for (const tipo of tipos) {
+                //     const librosTipos = await servicioLibroTipo.Crear(libro.id, tipo)
+                //     if (!librosTipos) {
+                //         response.status(400).send("Hubo un problema con los tipos")
+                //     }
+                // }
+                // for (const relacion of relaciones) {
+                //     const librosRelaciones = await servicioLibroRelacion.Crear(libro.id, relacion)
+                //     if (!librosRelaciones) {
+                //         response.status(400).send("Hubo un problema con las relaciones")
+                //     }
+                // }
                 response.status(200).json({data: libro});
             }
             else {
