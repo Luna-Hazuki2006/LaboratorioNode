@@ -40,6 +40,14 @@ class TipoLibroServicio {
         }
     }
 
+    async ConsultarMultiples(ids) {
+        try {
+            return await TipoLibro.findAll({where: {"id": {in: ids}}, include: [{ all: true }]})
+        } catch (error) {
+            
+        }
+    }
+
     async Listar() {
         try {
             return await TipoLibro.findAll({include: [{ all: true }]})
