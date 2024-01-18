@@ -25,20 +25,24 @@ const Usuario = sequelize.define('Usuario', {
         allowNull: false
     }, 
     correo: {
-        type: DataTypes.DATE, 
+        type: DataTypes.STRING, 
         allowNull: false
     }, 
     contraseña: {
-        type: DataTypes.DATE, 
+        type: DataTypes.STRING, 
         allowNull: false
-    }, 
-    createdAt: {
-        type: DataTypes.DATE, 
-        defaultValue: DataTypes.NOW
     }
 }, { tableName: 'usuarioAna' });
 
 // TipoUsuario.hasMany(Usuario, {foreignKey: "idTipoUsuario"})
 // Usuario.belongsTo(TipoUsuario)
+/*{
+    "nombre": "Luna",
+    "apellido": "Hazuki", 
+    "fechaNacimiento": "2006/05/20", 
+    "direccion": "Cerca de la esquina con el semáforo", 
+    "correo": "anapaulamendozadiaz2006@gmail.com", 
+    "contraseña": "texto importante"
+}*/
 
 export {Usuario}

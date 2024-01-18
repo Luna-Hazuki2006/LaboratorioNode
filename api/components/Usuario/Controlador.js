@@ -5,8 +5,8 @@ class UsuarioControlador {
     async Crear(request, response) {
         try { 
             const servicio = new UsuarioServicio();
-            const {nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario} = request.body;
-            const usuario = await servicio.Crear(nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario);
+            const {cedula, nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario} = request.body;
+            const usuario = await servicio.Crear(cedula, nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario);
             
             if (usuario) {
                 response.status(200).json({data: usuario});

@@ -40,6 +40,17 @@ class CategoriaServicio {
         }
     }
 
+    async ConsultarMultiples(ids) {
+        try {
+            return await Categorias.findAll({where: {"id": {in: ids}}, include: [{ all: true }]})
+        } catch (error) {
+            
+        }
+    }
+
+// someAttribute: {
+// in: [1,2,3]}
+
     async Listar() {
         try {
             return await Categorias.findAll({include: [{ all: true }]})

@@ -42,6 +42,14 @@ class AutorServicio {
         }
     }
 
+    async ConsultarMultiples(ids) {
+        try {
+            return await Autores.findAll({where: {"id": {in: ids}}, include: [{ all: true }]})
+        } catch (error) {
+            
+        }
+    }
+
     async Listar() {
         try {
             return await Autores.findAll({include: [{ all: true }]})

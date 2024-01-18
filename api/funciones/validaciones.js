@@ -2,10 +2,9 @@ import { DATE, INTEGER, STRING, json } from "sequelize";
 
 function ValidarCuerpoEntero(request, validables) {
     const lista = json(validables)['conditions']
-    const nombres = Object.keys(lista)
-    nombres.pop()
-    nombres.pop()
-    nombres.shift()
+    let nombres = Object.keys(lista)
+    console.log(nombres);
+    nombres = nombres.filter((e) => e != 'createdAt' && e != 'updatedAt' && e != 'id')
     console.log(nombres);
     if (!request?.body) {
         return 'Debe ingresar el body de la request'
@@ -20,7 +19,7 @@ function ValidarCuerpoEntero(request, validables) {
                 return `La propiedad \"${propiedad}\" debe ser de tipo numérico`
             }
         } else if (lista[propiedad]['type'] instanceof STRING) {
-            if (request.body[propiedad] instanceof String) {
+            if (typeof request.body[propiedad] == "string") {
                 if (request.body[propiedad].trim() == '') {
                     return `La propiedad \"${propiedad}\" no puede estar vacía`
                 }

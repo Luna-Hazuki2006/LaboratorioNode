@@ -9,7 +9,7 @@ const SesionRouter = (app) => {
     
     app.get('/Sesion/:id', validarId, controlador.Consultar)
     
-    app.post('/Sesion', validarCuerpo, controlador.Crear);
+    app.post('/Sesion', validarCuerpo, controlador.Iniciar);
 
     app.delete('/Sesion/:id', validarId, controlador.Cerrar)
     

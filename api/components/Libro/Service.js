@@ -8,15 +8,9 @@ class LibroServicio {
     async Crear(nombre, sinopsis, categorias, autores, tipos, relaciones) {
         try {
             const servicioCategoria = new CategoriaServicio()
-            let categoriasListas = []
-            for (const categoria of categorias) {
-                categoriasListas.push(await servicioCategoria.Consultar(categoria))
-            }
+            let categoriasListas = servicioCategoria.ConsultarMultiples(categorias)
             const servicioAutor = new AutorServicio()
-            let autoresListas = []
-            for (const autor of autores) {
-                autoresListas.push(await servicioAutor.Consultar(autor))
-            }
+            let autoresListas = servicioAutor.ConsultarMultiples(autores)
             const servicioTipo = new TipoLibroServicio()
             let tiposListas = []
             for (const tipo of tipos) {
@@ -29,7 +23,8 @@ class LibroServicio {
             }
             const libro = await Libro.create({
                 nombre,
-                sinopsis
+                sinopsis, 
+
             });
             for (const categoria of categoriasListas) {
                 libro.addCategorias(categoria)
@@ -87,3 +82,7 @@ class LibroServicio {
 }
 
 export {LibroServicio}
+
+// https://sequelize.org/docs/v6/core-concepts/model-querying-basics/#operators
+// https://sequelize.org/docs/v6/advanced-association-concepts/creating-with-associations/
+// https://sequelize.org/docs/v6/advanced-association-concepts/creating-with-associations/#hasmany--belongstomany-association

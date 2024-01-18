@@ -4,20 +4,24 @@ import { UsuarioServicio } from "../Usuario/Service.js";
 class SesionServicio {
     async Crear(contraseña, usuarioCedula) {
         try {
-            let token = {
+            let tokenReal = {
                 "fecha": (new Date()).getMilliseconds(), 
                 "cédula": usuarioCedula, 
                 "duración en minutos": 5, 
                 "Información importante": Math.random().toString()
             }
+            let token = tokenReal["Información importante"]
             const servicio = new UsuarioServicio()
             const usuario = await servicio.Consultar(usuarioCedula)
-            const sesion = await Sesion.create({
-                token, 
-                fechaSesion, 
-                usuarioCedula
-            });
-            await usuario.addSesion(sesion)
+            if (usuario.dataValues.contraseña == contraseña) {
+                const sesion = await Sesion.create({
+                    token, 
+                    fechaSesion: new Date(), 
+                    usuarioCedula
+                });
+                // await usuario.addSesion(sesion)
+            }
+            return this.Nuevo(tokenReal)
         }
         catch(error) {
             throw error

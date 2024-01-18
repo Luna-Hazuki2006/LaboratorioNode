@@ -19,9 +19,10 @@ const validarUsuario = (request, response, next) => {
 } 
 
 const validarCuerpo = (request, response, next) => {
-    const validables = Sesion.getAttributes()
-    const error = ValidarCuerpoEntero(request, validables)
-    if (error) next(new Error(error))
+    // modificar esta validación sin el middleware original
+    // const validables = Sesion.getAttributes()
+    // const error = ValidarCuerpoEntero(request, validables)
+    // if (error) next(new Error(error))
     next()
 } 
 
