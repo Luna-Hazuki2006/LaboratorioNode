@@ -12,14 +12,14 @@ const Relaciones = sequelize.define('Relaciones', {
         type: DataTypes.STRING,
         allowNull: true
     }, 
-    idTiposRelaciones: {
-        type: DataTypes.INTEGER, 
-        allowNull: false
-    }, 
-    idAutor: {
-        type: DataTypes.INTEGER, 
-        allowNull: false
-    }, 
+    // idTiposRelaciones: {
+    //     type: DataTypes.INTEGER, 
+    //     allowNull: false
+    // }, 
+    // idAutor: {
+    //     type: DataTypes.INTEGER, 
+    //     allowNull: false
+    // }, 
     createdAt: {
         type: DataTypes.DATE, 
         defaultValue: DataTypes.NOW

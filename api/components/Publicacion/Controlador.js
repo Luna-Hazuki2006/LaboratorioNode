@@ -23,9 +23,9 @@ class PublicacionControlador {
     async Modificar(request, response) {
         try { 
             const servicio = new PublicacionServicio();
-            const {descripcion, cedulaUsuario, idLibro} = request.body;
+            const {descripcion} = request.body;
             const id = request.params.id
-            const publicaciones = await servicio.Modificar(id, descripcion, cedulaUsuario, idLibro);
+            const publicaciones = await servicio.Modificar(id, descripcion);
             
             if (publicaciones) {
                 response.status(200).json({data: "Se modificó con éxito :D"});

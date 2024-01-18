@@ -1,13 +1,20 @@
 import { Conversacion } from "../modelo.js"
+import { PublicacionServicio } from "../Publicacion/Service.js";
+import { UsuarioServicio } from "../Usuario/Service.js";
 
 class ConversacionServicio {
     async Crear(fecha, usuarioCedula, publicacionId) {
         try {
-            return await Conversacion.create({
+            const servicioPublicacion = new PublicacionServicio()
+            const servicioUsuario = new UsuarioServicio()
+            const usuario = await servicioUsuario.Consultar(usuarioCedula)
+            const publicacion = await servicioPublicacion.Consultar(publicacionId)
+            const conversacion = await Conversacion.create({
                 fecha, 
-                usuarioCedula, 
-                publicacionId
-              });
+            });
+            conversacion.addUsuario(usuario)
+            conversacion.addPublicacion(publicacion)
+            return conversacion
         }
         catch(error) {
             throw error

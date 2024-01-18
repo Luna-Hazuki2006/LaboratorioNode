@@ -1,16 +1,49 @@
 import { Libro } from "../modelo.js"
-import { LibroCategoriaServicio } from "../LibroCategoria/Service.js";
-import { LibrosAutorServicio } from "../LibrosAutor/Service.js";
-import { LibrosTipoServicio } from "../LibrosTipo/Service.js";
-import { LibrosRelacionServicio } from "../LibrosRelacion/Service.js";
+import { CategoriaServicio } from "../Categoria/Service.js";
+import { AutorServicio } from "../Autor/Service.js";
+import { TipoLibroServicio } from "../TipoLibro/Service.js";
+import { RelacionesServicio } from "../Relacion/Service.js";
 
 class LibroServicio {
-    async Crear(nombre, sinopsis) {
+    async Crear(nombre, sinopsis, categorias, autores, tipos, relaciones) {
         try {
+            const servicioCategoria = new CategoriaServicio()
+            let categoriasListas = []
+            for (const categoria of categorias) {
+                categoriasListas.push(await servicioCategoria.Consultar(categoria))
+            }
+            const servicioAutor = new AutorServicio()
+            let autoresListas = []
+            for (const autor of autores) {
+                autoresListas.push(await servicioAutor.Consultar(autor))
+            }
+            const servicioTipo = new TipoLibroServicio()
+            let tiposListas = []
+            for (const tipo of tipos) {
+                tiposListas.push(await servicioTipo.Consultar(tipo))
+            }
+            const servicioRelacion = new RelacionesServicio()
+            let relacionesListas = []
+            for (const relacion of relaciones) {
+                relacionesListas.push(await servicioRelacion.Consultar(relacion))
+            }
             const libro = await Libro.create({
                 nombre,
                 sinopsis
             });
+            for (const categoria of categoriasListas) {
+                libro.addCategorias(categoria)
+            }
+            for (const autor of autoresListas) {
+                libro.addAutores(autor)
+            }
+            for (const tipo of tiposListas) {
+                libro.addTipoLibro(tipo)
+            }
+            for (const relacion of relacionesListas) {
+                libro.addRelaciones(relacion)
+            }
+            return libro
         }
         catch(error) {
             throw error

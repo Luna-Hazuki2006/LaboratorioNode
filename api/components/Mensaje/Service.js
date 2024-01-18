@@ -1,15 +1,21 @@
-import { Mensaje, Usuario, Conversacion } from "../modelo.js"
+import { Mensaje } from "../modelo.js"
+import { UsuarioServicio } from "../Usuario/Service.js";
+import { ConversacionServicio } from "../Conversacion/Service.js";
 
 class MensajeServicio {
     async Crear(fecha, texto, usuarioCedula, conversacionId) {
+        const servicioUsuario = new UsuarioServicio()
+        const servicioConversacion = new ConversacionServicio()
+        const usuario = await servicioUsuario.Consultar(usuarioCedula)
+        const conversacion = await servicioConversacion.Consultar(conversacionId)
         try {
             const mensaje = await Mensaje.create({
                 fecha, 
                 texto, 
             });
+            mensaje.addUsuario(usuario)
+            mensaje.addConversacion(conversacion)
             return mensaje
-            const usuario = await Usuario.findOne({where: {"cedula": usuarioCedula}})
-            const conversacion = await Conversacion.findOne({where: {"id": conversacionId}})
         }
         catch(error) {
             throw error

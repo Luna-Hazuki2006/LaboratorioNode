@@ -1,20 +1,27 @@
 import { Publicacion } from "../modelo.js"
+import { UsuarioServicio } from "../Usuario/Service.js";
+import { LibroServicio } from "../Libro/Service.js";
 
 class PublicacionServicio {
     async Crear(descripcion, cedulaUsuario, idLibro) {
         try {
-            return await Publicacion.create({
+            const servicioUsuario = new UsuarioServicio()
+            const servicioLibro = new LibroServicio()
+            const usuario = await servicioUsuario.Consultar(cedulaUsuario)
+            const libro = await servicioLibro.Consultar(idLibro)
+            const publicacion = await Publicacion.create({
                 descripcion, 
-                cedulaUsuario, 
-                idLibro
-              });
+            });
+            publicacion.addUsuario(usuario)
+            publicacion.addLibro(libro)
+            return publicacion
         }
         catch(error) {
             throw error
         }
     }
 
-    async Modificar(id, descripcion, cedulaUsuario, idLibro) {
+    async Modificar(id, descripcion) {
         try {
             return await Publicacion.update({
                 descripcion, 

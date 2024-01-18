@@ -23,9 +23,9 @@ class UsuarioControlador {
     async Modificar(request, response) {
         try { 
             const servicio = new UsuarioServicio();
-            const {nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario} = request.body;
+            const {nombre, apellido, fechaNacimiento, direccion, correo, contraseña} = request.body;
             const cedula = request.params.cedula
-            const usuario = await servicio.Modificar(cedula, nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario);
+            const usuario = await servicio.Modificar(cedula, nombre, apellido, fechaNacimiento, direccion, correo, contraseña);
             
             if (usuario) {
                 response.status(200).json({data: "Se modificó con éxito :D"});

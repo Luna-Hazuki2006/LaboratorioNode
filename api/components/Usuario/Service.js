@@ -1,9 +1,12 @@
 import { Usuario } from "../modelo.js"
+import { TipoUsuarioServicio } from "../TipoUsuario/Service.js";
 
 class UsuarioServicio {
     async Crear(nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario) {
         try {
-            return await Usuario.create({
+            const servicio = new TipoUsuarioServicio()
+            const tipo = await servicio.Consultar(idTipoUsuario)
+            const usuario = await Usuario.create({
                 nombre,
                 apellido, 
                 fechaNacimiento, 
@@ -11,23 +14,24 @@ class UsuarioServicio {
                 correo, 
                 contraseña, 
                 idTipoUsuario
-              });
+            });
+            usuario.addTipoUsuario(tipo)
+            return usuario
         }
         catch(error) {
             throw error
         }
     }
 
-    async Modificar(cedula, nombre, apellido, fechaNacimiento, direccion, correo, contraseña, idTipoUsuario) {
+    async Modificar(cedula, nombre, apellido, fechaNacimiento, direccion, correo, contraseña) {
         try {
-            return await Usuario.update({
+            await Usuario.update({
                 nombre, 
                 apellido, 
                 fechaNacimiento, 
                 direccion, 
                 correo, 
                 contraseña, 
-                idTipoUsuario
             }, {where: {"cedula": cedula}})
         } catch (error) {
             throw error

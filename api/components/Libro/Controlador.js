@@ -4,10 +4,6 @@ class LibroControlador {
 
     async Crear(request, response) {
         try { 
-            const servicioLibroCategoria = new LibroCategoriaServicio()
-            const servicioLibroAutor = new LibrosAutorServicio()
-            const servicioLibroTipo = new LibrosTipoServicio()
-            const servicioLibroRelacion = new LibrosRelacionServicio()
             const servicio = new LibroServicio();
             const {nombre, sinopsis, categorias, autores, tipos, relaciones} = request.body;
             const libro = await servicio.Crear(nombre, sinopsis);
