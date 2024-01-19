@@ -9,25 +9,26 @@ class RelacionesServicio {
             const servicioAutor = new AutorServicio()
             const autor = await servicioAutor.Consultar(idAutor)
             const tipo = await servicioTipo.Consultar(idTiposRelaciones)
-            const relacion = await Relaciones.create({
-                nombre,
-                descripcion, 
-            });
-            relacion.addTiposRelaciones(tipo)
-            relacion.addAutores(autor)
+            if (tipo && autor) {
+                const relacion = await Relaciones.create({
+                    nombre,
+                    descripcion, 
+                    idTiposRelaciones, 
+                    idAutor
+                });
+                return relacion
+            }
         }
         catch(error) {
             throw error
         }
     }
 
-    async Modificar(id, nombre, descripcion, idTiposRelaciones, idAutor) {
+    async Modificar(id, nombre, descripcion) {
         try {
             return await Relaciones.update({
                 nombre, 
-                descripcion, 
-                idTiposRelaciones, 
-                idAutor
+                descripcion
             }, {where: {"id": id}})
         } catch (error) {
             throw error

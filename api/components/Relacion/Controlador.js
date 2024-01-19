@@ -23,9 +23,9 @@ class RelacionesControlador {
     async Modificar(request, response) {
         try { 
             const servicio = new RelacionesServicio();
-            const {nombre, descripcion, idTiposRelaciones, idAutor} = request.body;
+            const {nombre, descripcion} = request.body;
             const id = request.params.id
-            const relaciones = await servicio.Modificar(id, nombre, descripcion, idTiposRelaciones, idAutor);
+            const relaciones = await servicio.Modificar(id, nombre, descripcion);
             
             if (relaciones) {
                 response.status(200).json({data: "Se modificó con éxito :D"});

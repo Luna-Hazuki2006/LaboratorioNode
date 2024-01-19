@@ -6,18 +6,19 @@ class UsuarioServicio {
         try {
             const servicio = new TipoUsuarioServicio()
             const tipo = await servicio.Consultar(idTipoUsuario)
-            const usuario = await Usuario.create({
-                cedula, 
-                nombre,
-                apellido, 
-                fechaNacimiento, 
-                direccion, 
-                correo, 
-                contraseña, 
-                idTipoUsuario
-            });
-            // usuario.addTipoUsuario(tipo)
-            return usuario
+            if (tipo) {
+                const usuario = await Usuario.create({
+                    cedula, 
+                    nombre,
+                    apellido, 
+                    fechaNacimiento, 
+                    direccion, 
+                    correo, 
+                    contraseña, 
+                    idTipoUsuario
+                });
+                return usuario
+            }
         }
         catch(error) {
             throw error

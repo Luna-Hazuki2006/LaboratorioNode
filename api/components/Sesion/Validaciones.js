@@ -20,9 +20,21 @@ const validarUsuario = (request, response, next) => {
 
 const validarCuerpo = (request, response, next) => {
     // modificar esta validación sin el middleware original
-    // const validables = Sesion.getAttributes()
-    // const error = ValidarCuerpoEntero(request, validables)
-    // if (error) next(new Error(error))
+    if (!request?.body) {
+        next(new Error("Se necesita tener el cuerpo de la request"))
+    } 
+    if (!request.body.contraseña) {
+        next(new Error("Se necesita tener la contraseña"))
+    }
+    if (!request.body.usuarioCedula) {
+        next(new Error("Se necesita la cédula del usuario"))
+    }
+    if (typeof request.body.usuarioCedula != "string") {
+        next(new Error("La cédula de usuario debe ser de tipo string"))
+    }
+    if (request.body.usuarioCedula.trim() == "") {
+        next(new Error("La cédula de usuario no puede ser vacía"))
+    }
     next()
 } 
 

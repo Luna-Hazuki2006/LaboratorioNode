@@ -14,7 +14,7 @@ class SesionServicio {
             const servicio = new UsuarioServicio()
             const usuario = await servicio.Consultar(usuarioCedula)
             if (usuario.dataValues.contraseña == contraseña) {
-                const sesion = await Sesion.create({
+                await Sesion.create({
                     token, 
                     fechaSesion: new Date(), 
                     usuarioCedula

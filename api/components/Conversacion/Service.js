@@ -9,12 +9,14 @@ class ConversacionServicio {
             const servicioUsuario = new UsuarioServicio()
             const usuario = await servicioUsuario.Consultar(usuarioCedula)
             const publicacion = await servicioPublicacion.Consultar(publicacionId)
-            const conversacion = await Conversacion.create({
-                fecha, 
-            });
-            conversacion.addUsuario(usuario)
-            conversacion.addPublicacion(publicacion)
-            return conversacion
+            if (usuario && publicacion) {
+                const conversacion = await Conversacion.create({
+                    fecha, 
+                    usuarioCedula, 
+                    publicacionId
+                });
+                return conversacion
+            }
         }
         catch(error) {
             throw error

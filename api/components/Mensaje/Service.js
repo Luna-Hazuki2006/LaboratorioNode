@@ -4,18 +4,20 @@ import { ConversacionServicio } from "../Conversacion/Service.js";
 
 class MensajeServicio {
     async Crear(fecha, texto, usuarioCedula, conversacionId) {
-        const servicioUsuario = new UsuarioServicio()
-        const servicioConversacion = new ConversacionServicio()
-        const usuario = await servicioUsuario.Consultar(usuarioCedula)
-        const conversacion = await servicioConversacion.Consultar(conversacionId)
         try {
-            const mensaje = await Mensaje.create({
-                fecha, 
-                texto, 
-            });
-            mensaje.addUsuario(usuario)
-            mensaje.addConversacion(conversacion)
-            return mensaje
+            const servicioUsuario = new UsuarioServicio()
+            const servicioConversacion = new ConversacionServicio()
+            const usuario = await servicioUsuario.Consultar(usuarioCedula)
+            const conversacion = await servicioConversacion.Consultar(conversacionId)
+            if (usuario && conversacion) {
+                const mensaje = await Mensaje.create({
+                    fecha, 
+                    texto, 
+                    usuarioCedula, 
+                    conversacionId
+                });
+                return mensaje
+            }
         }
         catch(error) {
             throw error

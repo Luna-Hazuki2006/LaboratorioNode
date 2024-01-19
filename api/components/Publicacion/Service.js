@@ -9,12 +9,14 @@ class PublicacionServicio {
             const servicioLibro = new LibroServicio()
             const usuario = await servicioUsuario.Consultar(cedulaUsuario)
             const libro = await servicioLibro.Consultar(idLibro)
-            const publicacion = await Publicacion.create({
-                descripcion, 
-            });
-            publicacion.addUsuario(usuario)
-            publicacion.addLibro(libro)
-            return publicacion
+            if (usuario && libro) {
+                const publicacion = await Publicacion.create({
+                    descripcion, 
+                    cedulaUsuario, 
+                    idLibro
+                });
+                return publicacion
+            }
         }
         catch(error) {
             throw error
