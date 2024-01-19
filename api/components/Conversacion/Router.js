@@ -13,8 +13,6 @@ const ConversacionRouter = (app) => {
     
     app.post('/Conversacion', validarCuerpo, controlador.Consultar);
     
-    // app.delete('/Conversacion/:id', validarId)
-    
 }
 
 export default ConversacionRouter;
