@@ -85,9 +85,53 @@
  *                      type: array
  *                      description: Lista de ids de las relaciones que tiene el libro
  *          LibroCategoria: 
+ *              type: object
+ *              required: 
+ *                  - idLibro
+ *                  - idCategoria
+ *              properties: 
+ *                  idLibro: 
+ *                      type: integer
+ *                      description: La id del libro
+ *                  idCategoria: 
+ *                      type: integer
+ *                      description: La id de la cotegoría
  *          LibrosAutor: 
+ *              type: object
+ *              required: 
+ *                  - idLibro
+ *                  - idAutor
+ *              properties: 
+ *                  idLibro: 
+ *                      type: integer
+ *                      description: La id del libro
+ *                  idAutor: 
+ *                      type: integer
+ *                      description: La id del autor
  *          LibrosRelacion: 
+ *              type: object
+ *              required: 
+ *                  - idLibro
+ *                  - idRelacion
+ *              properties: 
+ *                  idLibro: 
+ *                      type: integer
+ *                      description: La id del libro
+ *                  idRelacion: 
+ *                      type: integer
+ *                      description: La id de la relación
  *          LibrosTipo: 
+ *              type: object
+ *              required: 
+ *                  - idLibro
+ *                  - idTipoLibro
+ *              properties: 
+ *                  idLibro: 
+ *                      type: integer
+ *                      description: La id del libro
+ *                  idTipoLibro: 
+ *                      type: integer
+ *                      description: La id del tipo de libro
  *          Mensaje: 
  *              type: object
  *              required: 
@@ -676,6 +720,330 @@
  *          responses: 
  *              '200':
  *                  description: Se eliminó con éxito el libro"
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibroCategoria: 
+ *      post: 
+ *          summary: Crear una relación entre una categoría y un libro
+ *          tags: [LibroCategoria]
+ *          requestBody: 
+ *              description: Creación de una nueva relación entre una categoría y un libro 
+ *              content:
+ *                  application/json: 
+ *                      schema: 
+ *                          $ref: '#/components/schemas/LibroCategoria'
+ *          responses: 
+ *              '200':
+ *                  description: El objeto creado
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: object
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibroCategoria'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ *      delete:
+ *          summary: Eliminar una relación entre una categoría y un libro
+ *          tags: [LibroCategoria]
+ *          requestBody: 
+ *              description: eliminación de una nueva relación entre una categoría y un libro 
+ *              content:
+ *                  application/json: 
+ *                      schema: 
+ *                          $ref: '#/components/schemas/LibroCategoria'
+ *          responses: 
+ *              '200':
+ *                  description: Se eliminó con éxito la relación entre una categoría y un libro"
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibroCategoria/Libro/{idLibro}:
+ *      get:
+ *          summary: Listar todas las relaciones de categorías por libro
+ *          tags: [LibroCategoria]
+ *          parameters: 
+ *              - name: idLibro 
+ *                in: path 
+ *                description: La id del libro
+ *                required: true 
+ *                schema:
+ *                  type: integer
+ *                  format: int64
+ *          responses: 
+ *              '200':
+ *                  description: Una lista de todas las relaciones de categorías entre libros por libro
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: array
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibroCategoria'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibroCategoria/Categoria/{idCategoria}:
+ *      get:
+ *          summary: Listar todas las relaciones de libros por categoría
+ *          tags: [LibroCategoria]
+ *          parameters: 
+ *              - name: idCategoria 
+ *                in: path 
+ *                description: La id de la categoría
+ *                required: true 
+ *                schema:
+ *                  type: integer
+ *                  format: int64
+ *          responses: 
+ *              '200':
+ *                  description: Una lista de todas las relaciones de categorías entre libros por categoría
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: array
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibroCategoria'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosTipos: 
+ *      post: 
+ *          summary: Crear una relación entre un tipo y un libro
+ *          tags: [LibrosTipo]
+ *          requestBody: 
+ *              description: Creación de una nueva relación entre un tipo y un libro 
+ *              content:
+ *                  application/json: 
+ *                      schema: 
+ *                          $ref: '#/components/schemas/LibrosTipo'
+ *          responses: 
+ *              '200':
+ *                  description: El objeto creado
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: object
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosTipo'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ *      delete:
+ *          summary: Eliminar una relación entre un tipo y un libro
+ *          tags: [LibrosTipo]
+ *          requestBody: 
+ *              description: eliminación de una nueva relación entre un tipo y un libro 
+ *              content:
+ *                  application/json: 
+ *                      schema: 
+ *                          $ref: '#/components/schemas/LibrosTipo'
+ *          responses: 
+ *              '200':
+ *                  description: Se eliminó con éxito la relación entre un tipo y un libro"
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosTipos/Libro/{idLibro}:
+ *      get:
+ *          summary: Listar todas las relaciones de tipos por libro
+ *          tags: [LibrosTipo]
+ *          parameters: 
+ *              - name: idLibro 
+ *                in: path 
+ *                description: La id del libro
+ *                required: true 
+ *                schema:
+ *                  type: integer
+ *                  format: int64
+ *          responses: 
+ *              '200':
+ *                  description: Una lista de todas las relaciones de tipos entre libros por libro
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: array
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosTipo'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosTipos/Tipo/{idTipoLibro}:
+ *      get:
+ *          summary: Listar todas las relaciones de libros por tipo
+ *          tags: [LibrosTipo]
+ *          parameters: 
+ *              - name: idTipoLibro 
+ *                in: path 
+ *                description: La id del tipo de libro
+ *                required: true 
+ *                schema:
+ *                  type: integer
+ *                  format: int64
+ *          responses: 
+ *              '200':
+ *                  description: Una lista de todas las relaciones de tipos entre libros por tipo
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: array
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosTipo'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosRelacion: 
+ *      post: 
+ *          summary: Crear una relación entre su relación y un libro
+ *          tags: [LibrosRelacion]
+ *          requestBody: 
+ *              description: Creación de una nueva relación entre su relación y un libro 
+ *              content:
+ *                  application/json: 
+ *                      schema: 
+ *                          $ref: '#/components/schemas/LibrosRelacion'
+ *          responses: 
+ *              '200':
+ *                  description: El objeto creado
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: object
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosRelacion'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ *      delete:
+ *          summary: Eliminar una relación entre su relación y un libro
+ *          tags: [LibrosRelacion]
+ *          requestBody: 
+ *              description: eliminación de una nueva relación entre su relación y un libro 
+ *              content:
+ *                  application/json: 
+ *                      schema: 
+ *                          $ref: '#/components/schemas/LibrosRelacion'
+ *          responses: 
+ *              '200':
+ *                  description: Se eliminó con éxito la relación entre su relación y un libro"
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosRelacion/Libro/{idLibro}:
+ *      get:
+ *          summary: Listar todas las relaciones de sus relaciones por libro
+ *          tags: [LibrosRelacion]
+ *          parameters: 
+ *              - name: idLibro 
+ *                in: path 
+ *                description: La id del libro
+ *                required: true 
+ *                schema:
+ *                  type: integer
+ *                  format: int64
+ *          responses: 
+ *              '200':
+ *                  description: Una lista de todas las relaciones de sus relaciones entre libros por libro
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: array
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosRelacion'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosRelacion/Relacion/{idRelacion}:
+ *      get:
+ *          summary: Listar todas las relaciones de libros por relación
+ *          tags: [LibrosRelacion]
+ *          parameters: 
+ *              - name: idRelacion 
+ *                in: path 
+ *                description: La id de la relación de libro
+ *                required: true 
+ *                schema:
+ *                  type: integer
+ *                  format: int64
+ *          responses: 
+ *              '200':
+ *                  description: Una lista de todas las relaciones sus relaciones entre libros por relación
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: array
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosRelacion'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosAutor: 
+ *      post: 
+ *          summary: Crear una relación entre un autor y un libro
+ *          tags: [LibrosAutores]
+ *          requestBody: 
+ *              description: Creación de una nueva relación entre un autor y un libro 
+ *              content:
+ *                  application/json: 
+ *                      schema: 
+ *                          $ref: '#/components/schemas/LibrosAutor'
+ *          responses: 
+ *              '200':
+ *                  description: El objeto creado
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: object
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosAutor'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ *      delete:
+ *          summary: Eliminar una relación entre un autor y un libro
+ *          tags: [LibrosAutores]
+ *          requestBody: 
+ *              description: eliminación de una nueva relación entre un autor y un libro 
+ *              content:
+ *                  application/json: 
+ *                      schema: 
+ *                          $ref: '#/components/schemas/LibrosAutor'
+ *          responses: 
+ *              '200':
+ *                  description: Se eliminó con éxito la relación entre un autor y un libro"
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosAutor/Libro/{idLibro}:
+ *      get:
+ *          summary: Listar todas las relaciones de autores por libro
+ *          tags: [LibrosAutores]
+ *          parameters: 
+ *              - name: idLibro 
+ *                in: path 
+ *                description: La id del libro
+ *                required: true 
+ *                schema:
+ *                  type: integer
+ *                  format: int64
+ *          responses: 
+ *              '200':
+ *                  description: Una lista de todas las relaciones de autores entre libros por libro
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: array
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosAutor'
+ *              '400':
+ *                  description: no hay datos u otro mensaje
+ * /LibrosAutor/Autor/{idAutor}:
+ *      get:
+ *          summary: Listar todas las relaciones de libros por autor
+ *          tags: [LibrosAutores]
+ *          parameters: 
+ *              - name: idAutor 
+ *                in: path 
+ *                description: La id del autor del libro
+ *                required: true 
+ *                schema:
+ *                  type: integer
+ *                  format: int64
+ *          responses: 
+ *              '200':
+ *                  description: Una lista de todas las relaciones de autores entre libros por autor
+ *                  content:
+ *                      application/json: 
+ *                          schema: 
+ *                              type: array
+ *                              items: 
+ *                                  $ref: '/components/schemas/LibrosAutor'
  *              '400':
  *                  description: no hay datos u otro mensaje
  * /Mensaje:
