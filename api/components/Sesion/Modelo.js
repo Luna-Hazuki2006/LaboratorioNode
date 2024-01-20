@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize'; 
 import { sequelize } from '../../config/coneccion.js';
-import { Usuario } from "../Usuario/Modelo.js";
 
 const Sesion = sequelize.define('Sesion', {
     token: {
@@ -16,8 +15,5 @@ const Sesion = sequelize.define('Sesion', {
         defaultValue: DataTypes.NOW
     }
 }, { tableName: 'sesionAna' });
-
-// Usuario.hasMany(Sesion, {foreignKey: "cedulaUsuario"})
-// Sesion.belongsTo(Usuario)
 
 export {Sesion}
