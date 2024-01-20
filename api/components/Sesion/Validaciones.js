@@ -26,13 +26,13 @@ const validarCuerpo = (request, response, next) => {
     if (!request.body.contraseña) {
         next(new Error("Se necesita tener la contraseña"))
     }
-    if (!request.body.usuarioCedula) {
+    if (!request.body.cedulaUsuario) {
         next(new Error("Se necesita la cédula del usuario"))
     }
-    if (typeof request.body.usuarioCedula != "string") {
+    if (typeof request.body.cedulaUsuario != "string") {
         next(new Error("La cédula de usuario debe ser de tipo string"))
     }
-    if (request.body.usuarioCedula.trim() == "") {
+    if (request.body.cedulaUsuario.trim() == "") {
         next(new Error("La cédula de usuario no puede ser vacía"))
     }
     next()

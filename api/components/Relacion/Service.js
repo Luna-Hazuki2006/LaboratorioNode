@@ -53,7 +53,7 @@ class RelacionesServicio {
 
     async ConsultarMultiples(ids) {
         try {
-            return await Relaciones.findAll({where: {"id": {in: ids}}, include: [{ all: true }]})
+            return await Relaciones.findAll({where: {"id": {in: ids}, include: [{ all: true }]}})
         } catch (error) {
             
         }

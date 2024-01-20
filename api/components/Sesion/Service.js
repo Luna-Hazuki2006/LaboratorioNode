@@ -2,26 +2,26 @@ import { Sesion } from "../modelo.js"
 import { UsuarioServicio } from "../Usuario/Service.js";
 
 class SesionServicio {
-    async Crear(contraseña, usuarioCedula) {
+    async Crear(contraseña, cedulaUsuario) {
         try {
             let tokenReal = {
                 "fecha": (new Date()).getMilliseconds(), 
-                "cédula": usuarioCedula, 
+                "cédula": cedulaUsuario, 
                 "duración en minutos": 5, 
                 "Información importante": Math.random().toString()
             }
             let token = tokenReal["Información importante"]
             const servicio = new UsuarioServicio()
-            const usuario = await servicio.Consultar(usuarioCedula)
+            const usuario = await servicio.Consultar(cedulaUsuario)
             if (usuario.dataValues.contraseña == contraseña) {
                 await Sesion.create({
                     token, 
                     fechaSesion: new Date(), 
-                    usuarioCedula
+                    cedulaUsuario
                 });
                 // await usuario.addSesion(sesion)
             }
-            return this.Nuevo(tokenReal)
+            return this.Nuevo(JSON.stringify(tokenReal))
         }
         catch(error) {
             throw error
@@ -52,9 +52,9 @@ class SesionServicio {
         }
     }
 
-    async ListarPorUsuario(usuarioCedula) {
+    async ListarPorUsuario(cedulaUsuario) {
         try {
-            return await Sesion.findAll({where: {"usuarioCedula": usuarioCedula}, include: [{ all: true }]})
+            return await Sesion.findAll({where: {"cedulaUsuario": cedulaUsuario}, include: [{ all: true }]})
         } catch (error) {
             throw error
         }

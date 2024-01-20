@@ -9,9 +9,9 @@ const ConversacionRouter = (app) => {
 
     app.get('/Conversacion/Publicacion/:publicacionId', validarPublicacionId, controlador.ListarPorPublicacion)
     
-    app.get('/Conversacion/:id', validarId, controlador.Crear)
+    app.get('/Conversacion/:id', validarId, controlador.Consultar)
     
-    app.post('/Conversacion', validarCuerpo, controlador.Consultar);
+    app.post('/Conversacion', validarCuerpo, controlador.Crear);
     
 }
 

@@ -5,9 +5,9 @@ class SesionControlador {
     async Iniciar(request, response) {
         try { 
             const servicio = new SesionServicio();
-            const {contraseña, usuarioCedula} = request.body;
+            const {contraseña, cedulaUsuario} = request.body;
             // token = servicio.Nuevo(info)
-            const sesion = await servicio.Crear(contraseña, usuarioCedula);
+            const sesion = await servicio.Crear(contraseña, cedulaUsuario);
             
             if (sesion) {
                 response.status(200).json({data: sesion});

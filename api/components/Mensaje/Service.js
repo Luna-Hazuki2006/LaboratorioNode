@@ -51,8 +51,7 @@ class MensajeServicio {
 
     async ListarPorConversacion(conversacionId) {
         try {
-            return await Mensaje.findAll({where: {"conversacionId": conversacionId}, 
-                                            include: [{ all: true }]})
+            return await Mensaje.findAll({where: {"conversacionId": conversacionId}})
         } catch (error) {
             throw error
         }
