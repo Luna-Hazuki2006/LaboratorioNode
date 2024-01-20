@@ -26,7 +26,7 @@ const options = {
             description: "Una api hecha en nodejs de venta de libros con Express y documentada con Swagger", 
             contact: {
                 name: "Venta de libros online", 
-                url: "https://www.linkedin.com/in/ana-paula-mendoza-d%C3%ADaz-1a65b4250", 
+                url: "https://github.com/Luna-Hazuki2006/LaboratorioNode.git", 
                 email: "anapaulamendozadiaz2006@gmail.com"
             }
         }, 
